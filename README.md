@@ -21,7 +21,8 @@
 ## **Índice**
 
 * [1. Apresentação](#1-apresentação)
-* [1.1 Informações sobre o cliente](#11-informações-sobre-o-cliente)
+    * [1.1 Problema](#11-problema)
+    * [1.2 Informações sobre o cliente](#12-informações-sobre-o-cliente)
 * [2. Idealização do Projeto](#2-idealização-do-projeto)
 * [3. Desenho de interface do usuário](#3-desenho-de-interface-do-usuário)
   * [3.1 Protótipo de baixa fidelidade](#31-protótipos-de-baixa-fidelidade)
@@ -38,13 +39,15 @@
 
 ## **1. Apresentação**
 
-Quarto projeto realizado no Bootcamp de Desenvolvimento Web da Laboratória e teve como objetivo principal consolidar metodologias de trabalho em equipe, desenvolvimento ágil, user centricity, product design, research, versionamento de código, além de introduzir o uso do framework [React](https://reactjs.org/) e principios de [integração](https://medium.com/dailyjs/the-deepest-reason-why-modern-javascript-frameworks-exist-933b86ebc445) entre interface e API.
+Quarto projeto realizado no [Bootcamp de Desenvolvimento Web da Laboratória](https://www.laboratoria.la/br) e teve como objetivo principal consolidar metodologias de trabalho em equipe, [desenvolvimento ágil](https://agilemanifesto.org/), [user centricity](https://uxplanet.org/ucd-vs-ux-whats-the-difference-255443efa5f), product design, research, versionamento de código, além de introduzir o uso do framework [React](https://reactjs.org/) e principios de [integração](https://medium.com/dailyjs/the-deepest-reason-why-modern-javascript-frameworks-exist-933b86ebc445) entre interface e API.
+
+### **1.1 Problema**
 
 Um pequeno restaurante de hambúrgueres, que está crescendo, necessita uma interface em que se possa realizar pedidos utilizando um tablet, e enviá-los para a cozinha para que sejam preparados de forma ordenada e eficiente. Este projeto tem duas áreas: interface (cliente) e API (servidor). Nosso cliente nos pediu para desenvolver uma interface que se integre com a API.
 
 Um projeto 100% por demanda. Você sempre pode (e deve) fazer sugestões de melhora e mudança, mas muitas vezes trabalhará em um projeto em que primeiro deve se assegurar de cumprir os requisitos.
 
-### **1.1 Informações sobre o cliente:**
+### **1.2 Informações sobre o cliente:**
 
 > Burger Queen, um fast food cuja proposta de serviço 24 horas foi muito bem recebida e, para continuar a crescer, precisa de um sistema que ajude a receber pedidos de nossos clientes.
 
