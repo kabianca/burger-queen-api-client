@@ -1,18 +1,11 @@
-import burgerLogin from "./assets/burger.jpg"
-import background from "./assets/background-login.svg"
-import "../src/App.css"
+import React from "react";
+import Routes from "./routes";
+// import GlobalStyle from "./styles/global";
 
-function App() {
-  return (
-    <div className="App">
-      <img src={burgerLogin} alt="logo-hamburger" />
-      <form style={{backgroundImage: `url(${background})` }}>
-        <input type="text" placeholder="USUÁRIO" />
-        <input type="password" placeholder="SENHA" />
-        <input type="submit" value="ENTRAR" />
-      </form>
-    </div>
-  );
-}
+const App = () => (
+  <>
+    <Routes />
+  </>
+);
 
 export default App;

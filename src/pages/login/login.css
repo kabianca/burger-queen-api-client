@@ -1,0 +1,26 @@
+img {
+    border: red solid 1px;
+    margin-bottom: 3vh;
+    width: 30rem;
+}
+
+form {
+    border: green solid 1px;
+    background: cover no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    row-gap: 2.5vh;
+    width: 100vw;
+    height: 50vh;
+}
+
+form > input {
+    width: 60vw;
+    height: 4.5vh;
+    border-radius: 5px;
+}
+
+form > input[type=submit] {
+    background-color: var(--color-yellow-service);
+}
