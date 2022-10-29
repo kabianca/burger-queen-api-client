@@ -1,19 +1,25 @@
-import Background from "../../assets/background-login.svg";
+// import Background from "../../assets/background-login.png";
 import logo from "../../assets/burger.png";
 import { Link } from "react-router-dom";
+import "../../index.css";
+import ButtonSignin from "../../components/buttonSignin/buttonSigin";
 
 export const Login = () => {
 
   return (
-    <div className="App">
-      <img src={logo} alt="logo-hamburger" />
-      <form style={{backgroundImage: `url(${Background})` }}>
+    <section className="App">
+      <div id="logo-login">
+        <img src={logo} alt="logo-hamburger" id="logo-img-login" />
+      </div>
+      <form id="form-login">
         <input type="email" placeholder="USUÁRIO" />
         <input type="password" placeholder="SENHA" />
-        <input type="submit" value="ENTRAR" />
+        <ButtonSignin>
+          ENTRAR
+        </ButtonSignin>
         <p id="errorMsg"></p>
-        <p>Não possui conta? <Link to="/register">Cadastre-se</Link></p>
+        <p id="text-home">Não possui conta? <Link to="/register" className="link-home">Cadastre-se</Link></p>
       </form>
-    </div>
+    </section>
   );
 };

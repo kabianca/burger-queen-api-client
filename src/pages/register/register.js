@@ -1,8 +1,9 @@
-import Background from "../../assets/background-login.svg";
-import logo from "../../assets/burger.png";
+import logoRegister from "../../assets/burger.png";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { createUser } from "../../api/api";
+import "./register.css";
+import ButtonSignin from "../../components/buttonSignin/buttonSigin";
 
 export const Register = () => {
     const [name, setName] = useState("");
@@ -23,24 +24,33 @@ export const Register = () => {
           if(!data) return;
           console.log(data.token);
           console.log(data);
-          navigate("/menu");
+          navigate("/");
         })
         .catch(() => console.log('deu errado'));
     };
 
   return (
-    <div className="App">
-      <img src={logo} alt="logo-hamburger" />
-      <form style={{backgroundImage: `url(${Background})` }}>
+    <section className="App">
+      <div id="logo-register">
+        <img src={logoRegister} alt="logo-hamburger" id="logo-img-register"/>
+      </div>
+      <form id="form-register">
         <input type="text" placeholder="NOME" onChange={(e) => setName(e.target.value)} />
         <input type="email" placeholder="E-MAIL" onChange={(e) => setEmail(e.target.value)} />
         <input type="password" placeholder="SENHA" onChange={(e) => setPassword(e.target.value)} />
-        <input type="text" placeholder="FUNÇÃO (servico ou cozinha)" onChange={(e) => setRole(e.target.value)} />
-        <input type="text" placeholder="RESTAURANTE" />
-        <input type="submit" value="CADASTRAR" onClick={handleCreateUser} />
+        <select id="roleOption" name="roleOption" onChange={(e) => setRole(e.target.value)} >
+          <option value="service">Salão</option>
+          <option value="kitchen">Cozinha</option>
+        </select>
+        <select id="restaurant" name="restaurant" >
+          <option value="chapaBurger">Chapa Burger</option>
+        </select>
+        <ButtonSignin onClick={handleCreateUser}>
+          CADASTRAR
+        </ButtonSignin>
         <p id="errorMsg"></p>
-        <p>Já possui conta? <Link to="/">Entrar</Link></p>
+        <p id="text-home">Já possui conta? <Link to="/" className="link-home"> Entrar </Link></p>
       </form>
-    </div>
+    </section>
   );
 };
