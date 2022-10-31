@@ -1,32 +1,31 @@
 @import "./pages/login/login.css";
 @import "./pages/register/register.css";
 
-@media only screen 
-  and (min-device-width: 768px)
-  and (max-device-width: 1024px) {
+* {
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root {
+    --color-white: #FFFFFF;
+    --color-black: #000000;
+    --color-red: #B80303;
+    --color-green: #1FB741;
+    --color-gray: #9D9B9B;
+    --color-background: #211E1E;
+    --color-gray-box: #403B3C;
+    --color-yellow-service: #EBCE39;
+    --color-yellow-kitchen: #F5E487;
+}
 
-    * {
-        margin: 0 auto;
-        padding: 0;
-    }
-    :root {
-        --color-white: #FFFFFF;
-        --color-black: #000000;
-        --color-red: #B80303;
-        --color-green: #1FB741;
-        --color-gray: #9D9B9B;
-        --color-background: #211E1E;
-        --color-gray-box: #403B3C;
-        --color-yellow-service: #EBCE39;
-        --color-yellow-kitchen: #F5E487;
-    }
-    body {
-        max-width: 810px;
-        max-height: auto;
-    }
+.App {
+    display: flex;
+    flex-direction: column;
+}
 
-    .App {
-        display: flex;
-        flex-direction: column;
+@media screen and (min-width: 1200px) {
+    body, #form-login, #form-register {
+        min-width: 768px;
+        max-width: 991px;
     }
 }

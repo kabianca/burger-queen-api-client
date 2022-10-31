@@ -1,5 +1,8 @@
 <div align="center">
 
+<!-- ![Logo Chapa Burger](./src/assets/logo-chapa-burger-github1.png) -->
+<img src="./src/assets/logo-chapa-burger-github1.png" alt="Logo Chapa Burger" style="height:200px;">
+
 # **Burger Queen API Client**
 <div>
     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" style="height: 30px;"/>
@@ -8,7 +11,8 @@
     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" style="height: 30px;"/>
     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-plain.svg" alt="Node.js" style="height: 30px;"/>
     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jest/jest-plain.svg" alt="Jest" style="height: 30px;"/>
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" style="height: 30px;"/> 
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" style="height: 30px;"/>
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" style="height: 30px;"/> 
     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma" style="height: 30px;"/>
 </div>
 
@@ -34,8 +38,9 @@
         * [4.1.3 Historia 3](#413-história-3-chefe-de-cozinha-deve-ver-os-pedidos)
         * [4.1.4 Historia 4](#414-história-4-garçomgarçonete-deve-ver-os-pedidos-prontos-para-servir)
 * [5. Estrutura de apresentação](#5-estrutura-de-apresentação)
-* [6. CheckList](#6-checklist)
-* [7. Hacker Edition](#7-hacker-edition)
+* [6. Hacker Edition](#6-hacker-edition)
+* [7. Objetivos de aprendizagem](#7-objetivos-de-aprendizagem)
+* [8. Fonte das imagens](#8-fonte-das-imagens)
 
 ## **1. Apresentação**
 
@@ -45,7 +50,7 @@ Quarto projeto realizado no [Bootcamp de Desenvolvimento Web da Laboratória](ht
 
 Um pequeno restaurante de hambúrgueres, que está crescendo, necessita uma interface em que se possa realizar pedidos utilizando um tablet, e enviá-los para a cozinha para que sejam preparados de forma ordenada e eficiente. Este projeto tem duas áreas: interface (cliente) e API (servidor). Nosso cliente nos pediu para desenvolver uma interface que se integre com a API.
 
-Um projeto 100% por demanda. Você sempre pode (e deve) fazer sugestões de melhora e mudança, mas muitas vezes trabalhará em um projeto em que primeiro deve se assegurar de cumprir os requisitos.
+Esse é um projeto 100% por demanda, embora seja possível (e aconselhável) fazer sugestões de melhora e mudança, prioritariamente nos asseguramos de cumprir os requisitos solicitados.
 
 ### **1.2 Informações sobre o cliente:**
 
@@ -55,12 +60,17 @@ A interface deve mostrar os dois menus (café da manhã e restante do dia), cada
 
 ## **2. Idealização do Projeto**
 
+O planejamento desse projeto foi realizado de modo integral com auxílio [GitHub Projects](https://docs.github.com/pt/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects), onde foi possível agrupar problemas e acompanhar as solicitações e aprovações de Pull Requests associados à resolução desses problemas e tudo isso disposto de maneira bastante intuitiva em um [Kanban Dashboard](https://kanbanize.com/kanban-resources/getting-started/what-is-kanban-board). Além disso, é possível ainda visualizar o andamento do trabalho com gráficos configuráveis e trabalhar com milestones (marcos).
+
+
+
 ## **3. Desenho de interface do usuário**
 
 ### **3.1 Protótipos de baixa fidelidade**
 
 ### **3.2 Protótipo de alta fidelidade**
 
+![Protótipo de Alta Fidelidade](./prototipo-alta-fidelidade.png)
 ## **4. Histórias de usuário**
 
 ### **4.1 Definição do produto**
@@ -140,10 +150,122 @@ O [Product Owner](https://www.youtube.com/watch?v=7lhnYbmovb4) nos apresentou es
 
 ## **5. Estrutura de apresentação**
 
-## **6. Checklist**
-
-## **7. Hacker Edition**
+## **6. Hacker edition**
 
 As seções chamadas Hacker Edition são opcionais. Se você terminou tudo e ainda sobrou tempo, faça essa parte. Assim você poderá aprofundar e exercitar mais sobre os objetivos de aprendizagem do projeto.
 
 A aplicação deve seguir 80% ou mais das pontuações de Performance, Progressive Web App, Accessibility e Best Practices do [Lighthouse](https://developers.google.com/web/tools/lighthouse/).
+
+## **7. Objetivos de aprendizagem**
+### JavaScript
+
+- [ ] **Testes unitários**
+
+  <details><summary>Links</summary><p>
+
+  * [Introdução ao Jest - Documentação oficial](https://jestjs.io/docs/pt-BR/getting-started)
+</p></details>
+
+- [ ] **Testes assíncronos**
+
+  <details><summary>Links</summary><p>
+
+  * [Testando Código Assíncrono - Documentação oficial](https://jestjs.io/docs/pt-BR/asynchronous)
+</p></details>
+
+- [ ] **Mocking**
+
+  <details><summary>Links</summary><p>
+
+  * [Simulações Manuais - Documentação oficial](https://jestjs.io/docs/pt-BR/manual-mocks)
+</p></details>
+
+- [ ] **GitHub: Colaboração pelo Github (branches | forks | pull requests | code review | tags)**
+
+- [ ] **GitHub: Organização pelo Github (projects | issues | labels | milestones | releases)**
+
+### HTTP
+
+- [ ] **Solicitações o requisições (request) e respostas (response).**
+
+  <details><summary>Links</summary><p>
+
+  * [Uma visão geral do HTTP - MDN](https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Overview)
+  * [Mensagens HTTP - MDN](https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Messages)
+</p></details>
+
+- [ ] **Cabeçalhos (headers)**
+
+  <details><summary>Links</summary><p>
+
+  * [Cabeçalhos HTTP - MDN](https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Headers)
+</p></details>
+
+- [ ] **Corpo (body)**
+
+  <details><summary>Links</summary><p>
+
+  * [Mensagens HTTP / Corpo - MDN](https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Messages#corpo)
+</p></details>
+
+- [ ] **Verbos HTTP**
+
+  <details><summary>Links</summary><p>
+
+  * [Métodos de requisição HTTP - MDN](https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Methods)
+</p></details>
+
+- [ ] **Codigos de status de HTTP**
+
+  <details><summary>Links</summary><p>
+
+  * [Códigos de status de respostas HTTP - MDN](https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Status)
+  * [The Complete Guide to Status Codes for Meaningful ReST APIs - dev.to](https://dev.to/khaosdoctor/the-complete-guide-to-status-codes-for-meaningful-rest-apis-1-5c5)
+</p></details>
+
+- [ ] **Encodings e JSON**
+
+  <details><summary>Links</summary><p>
+
+  * [Introdução ao JSON - Documentação oficial](https://www.json.org/json-pt.html)
+</p></details>
+
+- [ ] **CORS (Cross-Origin Resource Sharing)**
+
+  <details><summary>Links</summary><p>
+
+  * [Cross-Origin Resource Sharing (CORS) - MDN](https://developer.mozilla.org/pt-BR/docs/Web/HTTP/CORS)
+</p></details>
+
+### react
+
+- [ ] **jsx**
+
+- [ ] **components**
+
+- [ ] **events**
+
+- [ ] **lists-and-keys**
+
+- [ ] **conditional-rendering**
+
+- [ ] **lifting-up-state**
+
+- [ ] **hooks**
+
+- [ ] **css-modules**
+
+- [ ] **routing**
+## **8. Fonte das imagens**
+
+Logo hamburger adaptado de: <a href="https://www.freepik.com/free-vector/burger-fast-food-concept-hand-drawn-sketch-vector-illustration_26935569.htm#query=hamburger&position=7&from_view=search&track=sph">Image by nuraghies</a> on Freepik
+
+Icones do cardápio: <a href="https://www.flaticon.com/authors/freepik" title="Freepik icons">Icons created by Freepik - Flaticon</a> (chicken, vegan, hamburger, hamburger double, coffee, milk coffee, onion rings, french-fries, drink, water, egg, orange juice)
+
+Cheese slice: <a href="https://www.flaticon.com/free-icons/cheese-slice" title="cheese slice icons">Cheese slice icons created by Erifqi Zetiawan - Flaticon</a>
+
+Sandwich: <a href="https://www.flaticon.com/free-icons/sandwich" title="sandwich icons">Sandwich icons created by Flat Icons - Flaticon</a>
+
+
+
+

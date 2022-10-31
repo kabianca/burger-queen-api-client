@@ -2,6 +2,7 @@
     background-color: var(--color-gray);
     background-image: url("../../assets/background-login.png");
     background-position: right 75% bottom 6%;
+    background-repeat: no-repeat;
     width: 100%;
     height: 60vh;
     display: flex;
@@ -43,5 +44,22 @@ Input {
 .link-home {
     cursor: pointer;
     text-decoration: none;
-    color: var(--color-gray-box);
+    color: var(--color-yellow-kitchen);
+    text-shadow: 2px 2px 5px var(--color-black);
+}
+
+@media screen and (min-width: 1200px) {
+    #logo-login {
+        background-size: 100%;
+        width: 100%;
+    }
+    #logo-img-login {
+        height: 45vh;
+        width: auto;
+    }
+
+    .input-login {
+        width: 60%;
+        height: 12%;
+    }
 }

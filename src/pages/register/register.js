@@ -1,8 +1,10 @@
-import logoRegister from "../../assets/burger.png";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { createUser } from "../../api/api";
+
 import "./register.css";
+import logoRegister from "../../assets/burger.png";
+
+import { createUser } from "../../api/api";
 import ButtonSignin from "../../components/buttonSignin/buttonSigin";
 
 export const Register = () => {
@@ -35,14 +37,36 @@ export const Register = () => {
         <img src={logoRegister} alt="logo-hamburger" id="logo-img-register"/>
       </div>
       <form id="form-register">
-        <input type="text" placeholder="NOME" onChange={(e) => setName(e.target.value)} />
-        <input type="email" placeholder="E-MAIL" onChange={(e) => setEmail(e.target.value)} />
-        <input type="password" placeholder="SENHA" onChange={(e) => setPassword(e.target.value)} />
-        <select id="roleOption" name="roleOption" onChange={(e) => setRole(e.target.value)} >
+        <input
+          className="input-register"
+          type="text"
+          placeholder="NOME"
+          onChange={(e) => setName(e.target.value)} 
+        />
+        <input
+          className="input-register"
+          type="email"
+          placeholder="E-MAIL"
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <input
+          className="input-register"
+          type="password"
+          placeholder="SENHA"
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <select 
+          id="roleOption" 
+          name="roleOption" 
+          onChange={(e) => setRole(e.target.value)}
+        >
           <option value="service">Salão</option>
           <option value="kitchen">Cozinha</option>
         </select>
-        <select id="restaurant" name="restaurant" >
+        <select
+          id="restaurant"
+          name="restaurant"
+        >
           <option value="chapaBurger">Chapa Burger</option>
         </select>
         <ButtonSignin onClick={handleCreateUser}>
