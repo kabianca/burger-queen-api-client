@@ -1,26 +1,65 @@
-img {
-    border: red solid 1px;
-    margin-bottom: 3vh;
-    width: 30rem;
+#logo-login {
+    background-color: var(--color-gray);
+    background-image: url("../../assets/background-login.png");
+    background-position: right 75% bottom 6%;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-form {
-    border: green solid 1px;
-    background: cover no-repeat;
+#logo-img-login {
+    position: absolute;
+    margin: auto;
+    margin-bottom: 3vh;
+    width: 29rem;
+}
+
+#form-login {
+    background-color: var(--color-gray);
     display: flex;
     flex-direction: column;
     justify-content: center;
     row-gap: 2.5vh;
     width: 100vw;
-    height: 50vh;
+    height: 40vh;
 }
 
-form > input {
+Input {
     width: 60vw;
     height: 4.5vh;
     border-radius: 5px;
+    border: none;
+    outline: none;
+    text-align: center;
 }
 
-form > input[type=submit] {
-    background-color: var(--color-yellow-service);
+#text-home {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.link-home {
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--color-yellow-kitchen);
+    text-shadow: 2px 2px 5px var(--color-black);
+}
+
+@media screen and (min-width: 1200px) {
+    #logo-login {
+        background-size: 100%;
+        width: 100%;
+    }
+    #logo-img-login {
+        height: 45vh;
+        width: auto;
+    }
+
+    .input-login {
+        width: 60%;
+        height: 12%;
+    }
 }

@@ -1,8 +1,11 @@
+import HeaderService from "../../components/header/headerService";
+
 export const Menu = () => {
 
     return (
-      <div className="App">
-        <h1>Em construção - Menu</h1>
-      </div>
+      <section className="App">
+        <HeaderService></HeaderService>
+        <h1>Cardápio em Construção</h1>
+      </section>
     );
   };

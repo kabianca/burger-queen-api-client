@@ -1,8 +1,10 @@
 @import "./pages/login/login.css";
+@import "./pages/register/register.css";
 
 * {
     margin: 0 auto;
     padding: 0;
+    box-sizing: border-box;
 }
 :root {
     --color-white: #FFFFFF;
@@ -10,18 +12,20 @@
     --color-red: #B80303;
     --color-green: #1FB741;
     --color-gray: #9D9B9B;
-    --color-background: #231F20;
+    --color-background: #211E1E;
     --color-gray-box: #403B3C;
     --color-yellow-service: #EBCE39;
     --color-yellow-kitchen: #F5E487;
-}
-body {
-    background-color: var(--color-background);
-    max-width: 810px;
-    max-height: 1080px;
 }
 
 .App {
     display: flex;
     flex-direction: column;
+}
+
+@media screen and (min-width: 1200px) {
+    body, #form-login, #form-register {
+        min-width: 768px;
+        max-width: 991px;
+    }
 }

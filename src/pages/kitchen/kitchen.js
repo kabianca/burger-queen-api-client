@@ -1,8 +1,11 @@
+import HeaderKitchen from "../../components/header/headerKitchen";
+
 export const Kitchen = () => {
 
     return (
-      <div className="App">
-        <h1>Em construção - Cozinha</h1>
-      </div>
+      <section className="App">
+        <HeaderKitchen></HeaderKitchen>
+        <h1>Cozinha em Construção</h1>
+      </section>
     );
   };
