@@ -21,9 +21,8 @@ export const Login = () => {
         if (check.status === 200) {
           return check.json()
         }
-        const error = check.status;
         const printError = document.querySelector('#errorMsg');
-        printError.innerHTML = arrayErrors[0].login[error];
+        printError.innerHTML = arrayErrors[0].login[check.status];
       })
       .then((data) => {
         if(!data) return; // se não encontrar os dados do usuário, não me retorne nada

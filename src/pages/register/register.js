@@ -5,6 +5,7 @@ import "./register.css";
 import logoRegister from "../../assets/burger.png";
 
 import { createUser } from "../../api/api";
+import { errors } from "../../api/data/errors";
 import ButtonSignin from "../../components/buttonSignin/buttonSigin";
 
 export const Register = () => {
@@ -13,6 +14,7 @@ export const Register = () => {
     const [password, setPassword] = useState("");
     const [role, setRole] = useState("service");
     const navigate = useNavigate();
+    const arrayErrors = errors.errors;
   
     const handleCreateUser = () => {
       createUser(name, email, password, role)
@@ -20,6 +22,8 @@ export const Register = () => {
           if (check.status === 200) {
             return check.json();
           }
+          const printError = document.querySelector('#errorMsg');
+          printError.innerHTML = arrayErrors[0].register[check.status];
         })
         .then((data) => {
           if(!data) return;
