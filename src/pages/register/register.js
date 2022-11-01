@@ -14,8 +14,7 @@ export const Register = () => {
     const [role, setRole] = useState("service");
     const navigate = useNavigate();
   
-    const handleCreateUser = (e) => {
-      e.preventDefault();
+    const handleCreateUser = () => {
       createUser(name, email, password, role)
         .then((check) => {
           if (check.status === 200) {

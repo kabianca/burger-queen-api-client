@@ -5,13 +5,14 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 import { login } from "../../api/api";
-// import { LoginValidate } from "../../api/validations";
+import { errors } from "../../api/data/errors";
 import ButtonSignin from "../../components/buttonSignin/buttonSigin";
 
 export const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+  const arrayErrors = errors.errors;
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -20,12 +21,20 @@ export const Login = () => {
         if (check.status === 200) {
           return check.json()
         }
+        const error = check.status;
+        const printError = document.querySelector('#errorMsg');
+        printError.innerHTML = arrayErrors[0].login[error];
       })
       .then((data) => {
         if(!data) return; // se não encontrar os dados do usuário, não me retorne nada
         navigate(data.role === "service" ? "/menu" : "/kitchen"); // ao encontrar os dados do usuário de acordo com a função dele direcione para a próxima página. 
       })
-      .catch(() => console.log('deu errado'));
+      .catch((/* check */) => {
+        
+        /* const erro = String(check.status);
+        console.log(erro);
+        console.log(arrayErrors.login.erro); */
+      });
   };
 
   return (

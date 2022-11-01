@@ -1,5 +1,5 @@
 export const createUser = (name, email, password, role) => {
-  return fetch('https://lab-api-bq.up.railway.app/users', {
+  return fetch('https://lab-api-bq.onrender.com/users', {
     method: "POST",
     headers: { "Content-Type": "application/json; charset=UTF-8" },
     body: JSON.stringify({
@@ -13,7 +13,7 @@ export const createUser = (name, email, password, role) => {
 };
 
 export const login = (email, password) => {
-  return fetch('https://lab-api-bq.up.railway.app/auth', {
+  return fetch('https://lab-api-bq.onrender.com/auth', {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
@@ -22,3 +22,6 @@ export const login = (email, password) => {
     }),
   });
 };
+
+
+// https://lab-api-bq.up.railway.app
