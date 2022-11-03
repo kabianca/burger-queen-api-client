@@ -17,22 +17,27 @@ export const Login = () => {
   const handleLogin = (e) => {
     e.preventDefault();
     login(email, password)
-      .then((check) => {
-        if (check.status === 200) {
-          return check.json()
+      .then((response) => {
+        if (response.status === 200) {
+          return response.json()
         }
         const printError = document.querySelector('#errorMsg');
-        printError.innerHTML = arrayErrors[0].login[check.status];
+        printError.innerHTML = arrayErrors[0].login[response.status];
       })
       .then((data) => {
         if(!data) return; // se não encontrar os dados do usuário, não me retorne nada
-        navigate(data.role === "service" ? "/menu" : "/kitchen"); // ao encontrar os dados do usuário de acordo com a função dele direcione para a próxima página. 
+        setToken(data.token);
+        if (data.role === "service") {
+          navigate("/menu");
+        } if (data.role === "kitchen") {
+          navigate("/kitchen");
+        } if (data.role === "admin") {
+          navigate("/admin");
+        } // ao encontrar os dados do usuário de acordo com a função dele direcione para a próxima página. 
       })
-      .catch((/* check */) => {
-        
-        /* const erro = String(check.status);
-        console.log(erro);
-        console.log(arrayErrors.login.erro); */
+      .catch((error) => {
+        console.log(error);
+        /*console.log(arrayErrors.login.erro); */
       });
   };
 

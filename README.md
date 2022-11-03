@@ -82,17 +82,17 @@ O [Product Owner](https://www.youtube.com/watch?v=7lhnYbmovb4) nos apresentou es
 > Eu, como garçom/garçonete quero entrar no sistema de pedidos.
 
 * **Critérios de aceitação**
-   - [ ] Acessar uma tela de login.
-   - [ ] Inserir email e senha.
-   - [ ] Receber mensagens de erros compreensíveis, conforme o erro e as informações inseridas.
-   - [ ] Entrar no sistema de pedidos caso as credenciais forem corretas.
+   - [x] Acessar uma tela de login.
+   - [x] Inserir email e senha.
+   - [x] Receber mensagens de erros compreensíveis, conforme o erro e as informações inseridas.
+   - [x] Entrar no sistema de pedidos caso as credenciais forem corretas.
 
 * **Definição de pronto**
 
-   - [ ] _Code review_ de uma parceira.
+   - [x] _Code review_ de uma parceira.
    - [ ] Testes unitários e testes manuais.
-   - [ ] Testes de usabilidade e incorporação de feedback de usuário.
-   - [ ] Deploy do aplicativo e marcação de versão (tag git).
+   - [x] Testes de usabilidade e incorporação de feedback de usuário.
+   - [x] Deploy do aplicativo e marcação de versão (tag git).
 
 #### **4.1.2 História 2: Garçom/Garçonete deve ser capaz de anotar o pedido do cliente**
 
@@ -156,106 +156,18 @@ As seções chamadas Hacker Edition são opcionais. Se você terminou tudo e ain
 
 A aplicação deve seguir 80% ou mais das pontuações de Performance, Progressive Web App, Accessibility e Best Practices do [Lighthouse](https://developers.google.com/web/tools/lighthouse/).
 
-## **7. Objetivos de aprendizagem**
-### JavaScript
-
-- [ ] **Testes unitários**
-
-  <details><summary>Links</summary><p>
-
-  * [Introdução ao Jest - Documentação oficial](https://jestjs.io/docs/pt-BR/getting-started)
-</p></details>
-
-- [ ] **Testes assíncronos**
-
-  <details><summary>Links</summary><p>
-
-  * [Testando Código Assíncrono - Documentação oficial](https://jestjs.io/docs/pt-BR/asynchronous)
-</p></details>
-
-- [ ] **Mocking**
-
-  <details><summary>Links</summary><p>
-
-  * [Simulações Manuais - Documentação oficial](https://jestjs.io/docs/pt-BR/manual-mocks)
-</p></details>
-
-- [ ] **GitHub: Colaboração pelo Github (branches | forks | pull requests | code review | tags)**
-
-- [ ] **GitHub: Organização pelo Github (projects | issues | labels | milestones | releases)**
-
-### HTTP
-
-- [ ] **Solicitações o requisições (request) e respostas (response).**
-
-  <details><summary>Links</summary><p>
-
-  * [Uma visão geral do HTTP - MDN](https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Overview)
-  * [Mensagens HTTP - MDN](https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Messages)
-</p></details>
-
-- [ ] **Cabeçalhos (headers)**
-
-  <details><summary>Links</summary><p>
-
-  * [Cabeçalhos HTTP - MDN](https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Headers)
-</p></details>
-
-- [ ] **Corpo (body)**
-
-  <details><summary>Links</summary><p>
-
-  * [Mensagens HTTP / Corpo - MDN](https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Messages#corpo)
-</p></details>
-
-- [ ] **Verbos HTTP**
-
-  <details><summary>Links</summary><p>
-
-  * [Métodos de requisição HTTP - MDN](https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Methods)
-</p></details>
-
-- [ ] **Codigos de status de HTTP**
-
-  <details><summary>Links</summary><p>
-
-  * [Códigos de status de respostas HTTP - MDN](https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Status)
-  * [The Complete Guide to Status Codes for Meaningful ReST APIs - dev.to](https://dev.to/khaosdoctor/the-complete-guide-to-status-codes-for-meaningful-rest-apis-1-5c5)
-</p></details>
-
-- [ ] **Encodings e JSON**
-
-  <details><summary>Links</summary><p>
-
-  * [Introdução ao JSON - Documentação oficial](https://www.json.org/json-pt.html)
-</p></details>
-
-- [ ] **CORS (Cross-Origin Resource Sharing)**
-
-  <details><summary>Links</summary><p>
-
-  * [Cross-Origin Resource Sharing (CORS) - MDN](https://developer.mozilla.org/pt-BR/docs/Web/HTTP/CORS)
-</p></details>
-
-### react
-
-- [ ] **jsx**
-
-- [ ] **components**
-
-- [ ] **events**
-
-- [ ] **lists-and-keys**
-
-- [ ] **conditional-rendering**
-
-- [ ] **lifting-up-state**
-
-- [ ] **hooks**
-
-- [ ] **css-modules**
-
-- [ ] **routing**
+## **7. Objetivos de aprendizagem priorizados**
+| **JavaScript** | **HTTP** | **react** |
+| :---------- | :----------: | ----------:|
+| Testes unitários | Solicitações o requisições (request) e respostas (response). | jsx |
+| Testes assíncronos | Cabeçalhos (headers) | components |
+| Mocking | Corpo (body) | events |
+| | Verbos HTTP | lists-and-keys |
+| | Codigos de status de HTTP | conditional-rendering |
+| | Encodings e JSON | lifting-up-state |
+| | CORS (Cross-Origin Resource Sharing) | hooks |
+| | | css-modules |
+| | | routing |
 ## **8. Fonte das imagens**
 
 Logo hamburger adaptado de: <a href="https://www.freepik.com/free-vector/burger-fast-food-concept-hand-drawn-sketch-vector-illustration_26935569.htm#query=hamburger&position=7&from_view=search&track=sph">Image by nuraghies</a> on Freepik
