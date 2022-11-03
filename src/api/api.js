@@ -1,3 +1,7 @@
+const TOKEN = "token";
+export const setToken = (token) => localStorage.setItem(TOKEN, token);
+export const getToken = () => localStorage.getItem(TOKEN);
+
 export const createUser = (name, email, password, role) => {
   return fetch('https://lab-api-bq.onrender.com/users', {
     method: "POST",
@@ -23,5 +27,18 @@ export const login = (email, password) => {
   });
 };
 
+export const importUsers = async () => {
+  return await fetch('https://lab-api-bq.up.railway.com/users', {
+      method: 'GET',
+      headers: { 'Content-Type': 'application/json',
+        'Authorization': getToken() },
+  })
+}
 
-// https://lab-api-bq.up.railway.app
+export const accessProducts = async () => {
+  return await fetch('https://lab-api-bq.onrender.com/products', {
+      method: 'GET',
+      headers: { 'Content-Type': 'application/json',
+        'Authorization': getToken() },
+  })
+}

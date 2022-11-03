@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import "./register.css";
 import logoRegister from "../../assets/burger.png";
 
-import { createUser } from "../../api/api";
+import { createUser, setToken } from "../../api/api";
 import { errors } from "../../api/data/errors";
 import ButtonSignin from "../../components/buttonSignin/buttonSigin";
 
@@ -16,22 +16,24 @@ export const Register = () => {
     const navigate = useNavigate();
     const arrayErrors = errors.errors;
   
-    const handleCreateUser = () => {
+    const handleCreateUser = (e) => {
+      e.preventDefault();
       createUser(name, email, password, role)
-        .then((check) => {
-          if (check.status === 200) {
-            return check.json();
+        .then((response) => {
+          if (response.status === 200) {
+            return response.json();
           }
           const printError = document.querySelector('#errorMsg');
-          printError.innerHTML = arrayErrors[0].register[check.status];
+          printError.innerHTML = arrayErrors[0].register[response.status];
         })
         .then((data) => {
           if(!data) return;
+          setToken(data.token);
           console.log(data.token);
           console.log(data);
           navigate("/");
         })
-        .catch(() => console.log('deu errado'));
+        .catch((error) => console.log(error));
     };
 
   return (
