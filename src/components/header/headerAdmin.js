@@ -3,27 +3,25 @@ import "./header.css";
 
 const HeaderAdmin = () => { 
     return(
-        <>
         <header>
-            <ul className="nav justify-content-center">
+            <ul className="nav">
                 <li className="nav-item">
-                    <Link className="menu-link" to="/admin">Administração</Link>
+                    <Link className="item-link" to="/admin">Administração</Link>
                 </li>
                 <li className="nav-item">
-                    <Link className="menu-link" to="/menu">Cardápio</Link>
+                    <Link className="item-link" to="/menu">Cardápio</Link>
                 </li>
                 <li className="nav-item">
-                    <Link className="menu-link" to="/orders">Pedidos</Link>
+                    <Link className="item-link" to="/orders">Pedidos</Link>
                 </li>
                 <li className="nav-item">
-                    <Link className="menu-link" to="/kitchen">Cozinha</Link>
+                    <Link className="item-link" to="/kitchen">Cozinha</Link>
                 </li>
-                <li className="nav-item">
+                <li className="nav-item logout-icon" >
                     icone-logout
                 </li>
             </ul>
         </header>
-        </>
     )
 };
 

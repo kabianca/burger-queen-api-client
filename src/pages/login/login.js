@@ -4,7 +4,7 @@ import logo from "../../assets/burger.png";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-import { login } from "../../api/api";
+import { login, setToken } from "../../api/api";
 import { errors } from "../../api/data/errors";
 import ButtonSignin from "../../components/buttonSignin/buttonSigin";
 

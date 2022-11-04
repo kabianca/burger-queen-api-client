@@ -1,0 +1,32 @@
+.card-product{
+    height: 11.9rem;
+    width: 11.9rem;
+    display: flex;
+    flex-direction: column;
+    background: var(--color-gray-box);
+    border-radius: 10px;
+}
+
+.title-product{
+    display: flex;
+    height: 70%;
+}
+
+.img-product{
+    height: 100%;
+    width: 100%;
+}
+
+.name-product{
+    text-align: center;
+    color: var(--color-white);
+    font-size: 70%;
+    padding: 1rem 0 1rem 0;
+}
+
+.price-product{
+    padding: .15rem 0 .15rem 0;
+    text-align: center;
+    color: var(--color-green);
+    height: 30%;
+}

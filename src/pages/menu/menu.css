@@ -1,0 +1,30 @@
+.menu-container{
+    background-color: var(--color-background);
+}
+
+#buttons-select-menu{
+    display: flex;
+    justify-content: center;
+    gap: .5rem;
+    margin: 1rem;
+}
+
+#menu-shopping{
+    display: flex;
+    justify-content: center;
+    gap: .5rem;
+}
+
+#menu{
+    width: 48vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: end;
+    gap: .5rem;
+}
+#shopping-car{
+    background: var(--color-gray-box);
+    border-radius: 10px;
+    width: 48vw;
+
+}
