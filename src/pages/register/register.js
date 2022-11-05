@@ -6,7 +6,8 @@ import logoRegister from "../../assets/burger.png";
 
 import { createUser, setToken } from "../../api/api";
 import { errors } from "../../api/data/errors";
-import ButtonSignin from "../../components/buttonSignin/buttonSigin";
+import ButtonSignin from "../../components/ButtonSignin/ButtonSignin";
+import InputForm from "../../components/InputForm/InputForm";
 
 export const Register = () => {
     const [name, setName] = useState("");
@@ -42,20 +43,17 @@ export const Register = () => {
         <img src={logoRegister} alt="logo-hamburger" id="logo-img-register"/>
       </div>
       <form id="form-register">
-        <input
-          className="input-register"
+        <InputForm
           type="text"
           placeholder="NOME"
           onChange={(e) => setName(e.target.value)} 
         />
-        <input
-          className="input-register"
+        <InputForm
           type="email"
           placeholder="E-MAIL"
           onChange={(e) => setEmail(e.target.value)}
         />
-        <input
-          className="input-register"
+        <InputForm
           type="password"
           placeholder="SENHA"
           onChange={(e) => setPassword(e.target.value)}

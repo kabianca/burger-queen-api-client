@@ -1,8 +1,8 @@
-import HeaderService from "../../components/header/headerService";
+import HeaderService from "../../components/Header/HeaderService";
 import { useEffect, useState } from "react";
 import { accessProducts } from "../../api/api";
-import ButtonProducts from "../../components/buttonProducts/buttonProducts";
-import SelectMenu from "../../components/selectMenu/selectMenu";
+import ButtonProducts from "../../components/ButtonProducts/ButtonProducts";
+import SelectMenu from "../../components/SelectMenu/SelectMenu";
 
 import "./menu.css";
 
@@ -24,7 +24,7 @@ export const Menu = () => {
 
     return (
       <section className="menu-container">
-        <HeaderService></HeaderService>
+        <HeaderService/>
         <div id="buttons-select-menu">
           <SelectMenu> Café da Manhã</SelectMenu>
           <SelectMenu> Principal</SelectMenu>

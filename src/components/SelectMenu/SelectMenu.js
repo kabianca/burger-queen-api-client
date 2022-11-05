@@ -1,4 +1,4 @@
-import "./selectMenu.css";
+import "./SelectMenu.css";
 
 const SelectMenu = ( {children, onClick} ) => {
     return (

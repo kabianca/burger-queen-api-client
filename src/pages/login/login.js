@@ -6,7 +6,8 @@ import { Link, useNavigate } from "react-router-dom";
 
 import { login, setToken } from "../../api/api";
 import { errors } from "../../api/data/errors";
-import ButtonSignin from "../../components/buttonSignin/buttonSigin";
+import ButtonSignin from "../../components/ButtonSignin/ButtonSignin";
+import InputForm from "../../components/InputForm/InputForm";
 
 export const Login = () => {
   const [email, setEmail] = useState("");
@@ -47,8 +48,16 @@ export const Login = () => {
         <img src={logo} alt="logo-hamburger" id="logo-img-login" />
       </div>
       <form id="form-login">
-        <input className="input-login" type="email" placeholder="E-MAIL" onChange={(e) => setEmail(e.target.value)} />
-        <input className="input-login" type="password" placeholder="SENHA" onChange={(e) => setPassword(e.target.value)} />
+        <InputForm 
+          type="email" 
+          placeholder="E-MAIL" 
+          onChange={(e) => setEmail(e.target.value)} 
+        />
+        <InputForm 
+          type="password" 
+          placeholder="SENHA" 
+          onChange={(e) => setPassword(e.target.value)}
+        />
         <ButtonSignin onClick={handleLogin}>
           ENTRAR
         </ButtonSignin>
