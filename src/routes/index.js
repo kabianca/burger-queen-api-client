@@ -9,7 +9,6 @@ import { Kitchen } from "../pages/kitchen/kitchen";
 import "../index.css";
 
 const RoutesBurger = () => {
-  // a condicional das páginas vai entrar aqui
   return (
     <BrowserRouter>
       <Fragment>

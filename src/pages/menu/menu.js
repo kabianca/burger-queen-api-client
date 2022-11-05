@@ -1,17 +1,16 @@
 import HeaderService from "../../components/Header/HeaderService";
 import { useEffect, useState } from "react";
 import { accessProducts } from "../../api/api";
-import ButtonProducts from "../../components/ButtonProducts/ButtonProducts";
-import SelectMenu from "../../components/SelectMenu/SelectMenu";
+import { filterMenu } from "../../api/main";
+import ButtonProducts from "../../components/Buttons/ButtonProducts";
+import SelectMenu from "../../components/Buttons/SelectMenu";
+import ButtonKitchen from "../../components/Buttons/ButtonKitchen";
 
-import "./menu.css";
+import styles from "./menu.module.css";
 
 export const Menu = () => {
   const [products, setProducts] = useState([]);
-
-  // function printProducts(array) {
-  //   document.querySelector('#print-products').innerHTML = array.map((arr) => <ButtonProducts>{arr.name}</ButtonProducts>)
-  // }
+  const [type, setType] = useState('');
 
   useEffect(() => {
     accessProducts()
@@ -20,21 +19,37 @@ export const Menu = () => {
         setProducts(data)
       });
   }, []);
-  console.log(products);
 
-    return (
-      <section className="menu-container">
-        <HeaderService/>
-        <div id="buttons-select-menu">
-          <SelectMenu> Café da Manhã</SelectMenu>
-          <SelectMenu> Principal</SelectMenu>
-        </div>
-        <div id="menu-shopping">
-          <section id="menu">
-            {products.map((products) => <ButtonProducts>{products}</ButtonProducts>)}
-          </section>
-          <section id="shopping-car"></section>
-        </div>
-      </section>
-    );
-  };
+  // console.log(products);
+
+  const handleType = (e => setType(e.target.value));
+  let menu = filterMenu(products, type);
+
+  return (
+    <section className={styles.container}>
+      <HeaderService/>
+      <div className={styles.btnMenu}>
+        <SelectMenu onClick={handleType} value={"breakfast"}> Café da Manhã</SelectMenu>
+        <SelectMenu onClick={handleType} value={"all-day"}> Principal</SelectMenu>
+      </div>
+      <div className={styles.menuShopping}>
+        <section className={styles.menu}>
+          {menu.map((product) => <ButtonProducts key={product.id}>{product}</ButtonProducts>)}
+        </section>
+        <section className={styles.shoppingCar}>
+          <div className={styles.headerCar}>
+            <input className={styles.input} type="text" />
+            <input className={styles.input}type="text" />
+            <h1 className={styles.title}> Pedido:</h1>
+            <hr />
+          </div>
+          <div className={styles.btnKitchen}>
+            <hr />
+            <h1 className={styles.total}>Total: </h1>
+            <ButtonKitchen />
+          </div>
+        </section>
+      </div>
+    </section>
+  );
+};

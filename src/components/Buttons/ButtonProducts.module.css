@@ -1,4 +1,4 @@
-.card-product{
+.card{
     height: 8rem;
     width: 9rem;
     display: flex;
@@ -10,7 +10,7 @@
     font-family: var(--font-products);
 }
 
-.name-product{
+.name{
     text-align: center;
     color: var(--color-white);
     font-size: 100%;
@@ -18,7 +18,7 @@
     /* border: 2px solid red; */
 }
 
-.price-product{
+.price{
     padding: .15rem 0 .15rem 0;
     text-align: center;
     color: var(--color-green);

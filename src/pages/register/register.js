@@ -4,9 +4,9 @@ import { Link, useNavigate } from "react-router-dom";
 import "./register.css";
 import logoRegister from "../../assets/burger.png";
 
-import { createUser, setToken } from "../../api/api";
+import { createUser, setTokenRole } from "../../api/api";
 import { errors } from "../../api/data/errors";
-import ButtonSignin from "../../components/ButtonSignin/ButtonSignin";
+import ButtonSignin from "../../components/Buttons/ButtonSignin";
 import InputForm from "../../components/InputForm/InputForm";
 
 export const Register = () => {
@@ -29,8 +29,7 @@ export const Register = () => {
         })
         .then((data) => {
           if(!data) return;
-          setToken(data.token);
-          console.log(data.token);
+          setTokenRole(data.token, data.role);
           console.log(data);
           navigate("/");
         })
