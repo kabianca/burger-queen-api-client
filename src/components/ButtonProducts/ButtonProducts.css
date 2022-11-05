@@ -1,27 +1,21 @@
 .card-product{
-    height: 11.9rem;
-    width: 11.9rem;
+    height: 8rem;
+    width: 9rem;
     display: flex;
     flex-direction: column;
     background: var(--color-gray-box);
     border-radius: 10px;
-}
-
-.title-product{
-    display: flex;
-    height: 70%;
-}
-
-.img-product{
-    height: 100%;
-    width: 100%;
+    justify-content: space-between;
+    padding: .5rem;
+    font-family: var(--font-products);
 }
 
 .name-product{
     text-align: center;
     color: var(--color-white);
-    font-size: 70%;
+    font-size: 100%;
     padding: 1rem 0 1rem 0;
+    /* border: 2px solid red; */
 }
 
 .price-product{
@@ -29,4 +23,5 @@
     text-align: center;
     color: var(--color-green);
     height: 30%;
+    /* border: 2px solid blue; */
 }

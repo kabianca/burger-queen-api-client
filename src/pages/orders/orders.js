@@ -1,10 +1,10 @@
-import HeaderService from "../../components/header/headerService";
+import HeaderService from "../../components/Header/HeaderService";
 
 export const Orders = () => {
 
     return (
       <div className="App">
-        <HeaderService></HeaderService>
+        <HeaderService/>
         <h1>Em construção - Pedidos</h1>
       </div>
     );
