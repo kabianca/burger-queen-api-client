@@ -1,8 +1,10 @@
-.btn-select-menu{
+.btn{
     background: var(--color-gray-box);
     border-radius: 3px;
     padding: 1rem;
-    color: var(--color-white);
     border: transparent;
     width: 12rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-white);
 }

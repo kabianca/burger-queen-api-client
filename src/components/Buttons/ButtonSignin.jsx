@@ -1,8 +1,8 @@
-import "./ButtonSignin.css";
+import styles from "./ButtonSignin.module.css";
 
 const ButtonSignin = ( {children, onClick} ) => {
     return (
-        <button type="button" className="btn-signin" onClick={onClick}>
+        <button type="button" className={styles.btn} onClick={onClick}>
             {children}
         </button>
     )

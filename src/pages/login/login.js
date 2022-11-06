@@ -4,9 +4,9 @@ import logo from "../../assets/burger.png";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-import { login, setToken } from "../../api/api";
+import { login, setTokenRole } from "../../api/api";
 import { errors } from "../../api/data/errors";
-import ButtonSignin from "../../components/ButtonSignin/ButtonSignin";
+import ButtonSignin from "../../components/Buttons/ButtonSignin";
 import InputForm from "../../components/InputForm/InputForm";
 
 export const Login = () => {
@@ -22,19 +22,20 @@ export const Login = () => {
         if (response.status === 200) {
           return response.json()
         }
+        // Throw new Error();
         const printError = document.querySelector('#errorMsg');
         printError.innerHTML = arrayErrors[0].login[response.status];
       })
       .then((data) => {
-        if(!data) return; // se não encontrar os dados do usuário, não me retorne nada
-        setToken(data.token);
+        if(!data) return;
+        setTokenRole(data.token, data.role);
         if (data.role === "service") {
           navigate("/menu");
         } if (data.role === "kitchen") {
           navigate("/kitchen");
         } if (data.role === "admin") {
           navigate("/admin");
-        } // ao encontrar os dados do usuário de acordo com a função dele direcione para a próxima página. 
+        }
       })
       .catch((error) => {
         console.log(error);
