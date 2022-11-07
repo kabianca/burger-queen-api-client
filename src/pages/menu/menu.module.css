@@ -7,10 +7,10 @@
     display: flex;
     justify-content: center;
     gap: 1vw;
-    margin: 1vh 2.5vw;
-    width: 95vw;
+    /* margin: 1vh 2.5vw; */
+    /* width: 95vw; */
     height: 7vh;
-    /* border: 1px red solid; */
+    border: 1px red solid;
 }
 
 .menuShopping {
@@ -32,7 +32,7 @@
     padding-left: 50px;
     overflow: auto;
     height: 80vh;
-    /* border: 1px green solid; */
+    border: 1px green solid;
 }
 .shoppingCar{
     background: var(--color-gray-box);
@@ -40,7 +40,7 @@
     border-radius: 10px;
     width: 50vw;
     height: 80vh;
-    /* border: 1px yellow solid; */
+    border: 1px yellow solid;
 }
 .headerCar {
     padding: 1vh 2vw;
