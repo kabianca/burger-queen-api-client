@@ -1,3 +1,4 @@
+import React from "react";
 import HeaderService from "../../components/Header/HeaderService";
 import { useEffect, useState } from "react";
 import { accessProducts } from "../../api/api";
@@ -5,12 +6,15 @@ import { filterMenu } from "../../api/main";
 import ButtonProducts from "../../components/Buttons/ButtonProducts";
 import SelectMenu from "../../components/Buttons/SelectMenu";
 import ButtonKitchen from "../../components/Buttons/ButtonKitchen";
+import ItemCar from "../../components/itemInCar/item";
+import { newImg } from "../../api/main";
 
 import styles from "./menu.module.css";
 
 export const Menu = () => {
   const [products, setProducts] = useState([]);
   const [type, setType] = useState('');
+  const [active, setActive] = useState(false);
 
   useEffect(() => {
     accessProducts()
@@ -20,17 +24,36 @@ export const Menu = () => {
       });
   }, []);
 
-  // console.log(products);
+  for (let i=0; i < 28; i++) {
+    products[i].image = newImg[i].src
+  }
+  
+  console.log(products);
+  const handleType = ((e) => {
+    setType(e.target.value);
+    setActive(current => !current);
+  });
 
-  const handleType = (e => setType(e.target.value));
   let menu = filterMenu(products, type);
 
   return (
     <section className={styles.container}>
       <HeaderService/>
       <div className={styles.btnMenu}>
-        <SelectMenu onClick={handleType} value={"breakfast"}> Café da Manhã</SelectMenu>
-        <SelectMenu onClick={handleType} value={"all-day"}> Principal</SelectMenu>
+        <SelectMenu
+          onClick={handleType}
+          value={"breakfast"}
+          style={{
+            backgroundColor: active ? '#EBCE39' : '#403B3C',
+            color: active ? '#000' : '#FFF',
+          }}>
+            Café da Manhã
+        </SelectMenu>
+        <SelectMenu
+          onClick={handleType}
+          value={"all-day"}>
+            Principal
+        </SelectMenu>
       </div>
       <div className={styles.menuShopping}>
         <section className={styles.menu}>
@@ -42,6 +65,7 @@ export const Menu = () => {
             <input className={styles.input}type="text" />
             <h1 className={styles.title}> Pedido:</h1>
             <hr />
+            <ItemCar />
           </div>
           <div className={styles.btnKitchen}>
             <hr />

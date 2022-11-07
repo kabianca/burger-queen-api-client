@@ -25,3 +25,8 @@
     height: 30%;
     /* border: 2px solid blue; */
 }
+
+.image {
+    width: 70px;
+    height: auto;
+}

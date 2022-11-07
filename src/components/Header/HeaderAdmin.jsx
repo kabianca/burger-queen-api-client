@@ -1,27 +1,51 @@
-import { Link } from "react-router-dom";
+import React from "react";
+import { NavLink } from "react-router-dom";
 import { RiLogoutBoxRLine } from "react-icons/ri";
 import styles from "./Header.module.css";
 
 const HeaderAdmin = () => { 
+
     return(
         <header className={styles.header}>
-            <ul className={styles.nav}>
-                <li className={styles.item}>
-                    <Link className={styles.link} to="/admin">Administração</Link>
-                </li>
-                <li className={styles.item}>
-                    <Link className={styles.link} to="/menu">Cardápio</Link>
-                </li>
-                <li className={styles.item}>
-                    <Link className={styles.link} to="/orders">Pedidos</Link>
-                </li>
-                <li className={styles.item}>
-                    <Link className={styles.link} to="/kitchen">Cozinha</Link>
-                </li>
-                <li className={styles.item} >
-                    <RiLogoutBoxRLine />
-                </li>
-            </ul>
+            <nav>
+                <ul className={styles.nav}>
+                    <li className={styles.item}>
+                        <NavLink
+                            className={styles.link}
+                            style={({ isActive }) => ({color: isActive ? '#EBCE39' : '#FFF'})}
+                            to="/admin">
+                                Administração
+                        </NavLink>
+                    </li>
+                    <li className={styles.item}>
+                        <NavLink
+                            className={styles.link}
+                            style={({ isActive }) => ({color: isActive ? '#EBCE39' : '#FFF'})}
+                            to="/menu">
+                                Cardápio
+                        </NavLink>
+                    </li>
+                    <li className={styles.item}>
+                        <NavLink
+                            className={styles.link}
+                            style={({ isActive }) => ({color: isActive ? '#EBCE39' : '#FFF'})}
+                            to="/orders">
+                                Pedidos
+                        </NavLink>
+                    </li>
+                    <li className={styles.item}>
+                        <NavLink
+                            className={styles.link}
+                            style={({ isActive }) => ({color: isActive ? '#EBCE39' : '#FFF'})}
+                            to="/kitchen">
+                                Cozinha
+                        </NavLink>
+                    </li>
+                    <li className={styles.item} >
+                        <RiLogoutBoxRLine />
+                    </li>
+                </ul>
+            </nav>
         </header>
     )
 };

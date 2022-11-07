@@ -1,3 +1,4 @@
+import React from "react";
 import HeaderAdmin from "../../components/Header/HeaderAdmin";
 
 export const Admin = () => {

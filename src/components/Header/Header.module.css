@@ -10,7 +10,6 @@
 .item {
     list-style-type: none;
     padding: 1%;
-    /* text-align: center; */
     font-size: 1.2rem;
     color: var(--color-white);
 }
@@ -20,6 +19,6 @@
     color: var(--color-white);
 }
 
-.active{
+.isActive{
     color: var(--color-yellow-service);
 }
