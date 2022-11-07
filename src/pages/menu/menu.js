@@ -8,7 +8,6 @@ import SelectMenu from "../../components/Buttons/SelectMenu";
 import ButtonKitchen from "../../components/Buttons/ButtonKitchen";
 import ItemCar from "../../components/itemInCar/item";
 import { newImg } from "../../api/main";
-
 import styles from "./menu.module.css";
 
 export const Menu = () => {
@@ -28,7 +27,6 @@ export const Menu = () => {
     products[i].image = newImg[i].src
   }
   
-  console.log(products);
   const handleType = ((e) => {
     setType(e.target.value);
     setActive(current => !current);
