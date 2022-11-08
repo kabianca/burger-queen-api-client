@@ -23,9 +23,12 @@ export const Menu = () => {
       });
   }, []);
 
-  for (let i=0; i < 28; i++) {
-    products[i].image = newImg[i].src
-  }
+  const replaceImages = (a, b) => {
+    for (let i=0; i < 28; i++) {
+      a[i].image = b[i].src
+  }};
+
+  console.log(replaceImages(products, newImg))
   
   const handleType = ((e) => {
     setType(e.target.value);
