@@ -1,5 +1,5 @@
 import React from "react";
-import HeaderService from "../../components/Header/HeaderService";
+import {HeaderService} from "../../components/Header/Header";
 import { useEffect, useState } from "react";
 import { accessProducts } from "../../api/api";
 import { filterMenu } from "../../api/main";
@@ -7,7 +7,7 @@ import ButtonProducts from "../../components/Buttons/ButtonProducts";
 import SelectMenu from "../../components/Buttons/SelectMenu";
 import ButtonKitchen from "../../components/Buttons/ButtonKitchen";
 import ItemCar from "../../components/itemInCar/item";
-import { newImg } from "../../api/main";
+// import { newImg } from "../../api/main";
 import styles from "./menu.module.css";
 
 export const Menu = () => {
@@ -23,9 +23,13 @@ export const Menu = () => {
       });
   }, []);
 
-  for (let i=0; i < 28; i++) {
-    products[i].image = newImg[i].src
-  }
+
+  
+  const replaceImages = (products) => {
+    products.map((product) => product.image = `https://raw.githubusercontent.com/kabianca/burger-queen-api-client/Images/src/pages/menu/menu-img/${product.id}.png`)
+  };
+  console.log(products);
+  replaceImages(products);
   
   const handleType = ((e) => {
     setType(e.target.value);

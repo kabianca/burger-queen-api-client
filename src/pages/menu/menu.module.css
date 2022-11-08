@@ -1,16 +1,15 @@
 .container{
     background-color: var(--color-background);
-    height: 100vh;
 }
 
 .btnMenu{
     display: flex;
     justify-content: center;
     gap: 1vw;
-    /* margin: 1vh 2.5vw; */
+    margin: 1vh 2vw;
     /* width: 95vw; */
     height: 7vh;
-    border: 1px red solid;
+    /* border: 1px red solid; */
 }
 
 .menuShopping {
@@ -24,23 +23,18 @@
 }
 
 .menu{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1vw;
     align-content: flex-start;
-    gap: 10px 10px;
-    padding-left: 50px;
-    overflow: auto;
-    height: 80vh;
-    border: 1px green solid;
+    /* border: 1px green solid; */
 }
 .shoppingCar{
     background: var(--color-gray-box);
     position: relative;
     border-radius: 10px;
-    width: 50vw;
     height: 80vh;
-    border: 1px yellow solid;
+    /* border: 1px yellow solid; */
 }
 .headerCar {
     padding: 1vh 2vw;

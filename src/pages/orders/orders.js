@@ -1,5 +1,5 @@
 import React from "react";
-import HeaderService from "../../components/Header/HeaderService";
+import {HeaderService} from "../../components/Header/Header";
 
 export const Orders = () => {
 

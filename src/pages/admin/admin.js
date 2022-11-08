@@ -1,5 +1,5 @@
 import React from "react";
-import HeaderAdmin from "../../components/Header/HeaderAdmin";
+import {HeaderAdmin} from "../../components/Header/Header";
 
 export const Admin = () => {
 
