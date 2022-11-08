@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { getToken } from "../../api/api";
-import HeaderKitchen from "../../components/Header/HeaderKitchen";
+import {HeaderKitchen} from "../../components/Header/Header";
 
 export const Kitchen = () => {
   const navigate = useNavigate();

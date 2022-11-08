@@ -1,6 +1,6 @@
 .card{
     height: 8rem;
-    width: 9rem;
+    width: 48.9%;
     display: flex;
     flex-direction: column;
     background: var(--color-gray-box);
@@ -10,23 +10,32 @@
     font-family: var(--font-products);
 }
 
+.title{
+    display: flex;
+    /* border: 2px solid red; */
+    height: 80%;
+}
+
+.image {
+    height: 100%;
+    width: 4rem;
+    /* border: 2px solid yellow; */
+}
+
 .name{
     text-align: center;
     color: var(--color-white);
-    font-size: 100%;
-    padding: 1rem 0 1rem 0;
-    /* border: 2px solid red; */
+    font-size: .95rem;
+    margin: auto .2rem;
+    /* border: 2px solid green; */
+
 }
 
 .price{
     padding: .15rem 0 .15rem 0;
     text-align: center;
-    color: var(--color-green);
-    height: 30%;
+    color: var( --color-yellow-service);
+    height: 20%;
+    font-weight: bold;
     /* border: 2px solid blue; */
-}
-
-.image {
-    width: 70px;
-    height: auto;
 }
