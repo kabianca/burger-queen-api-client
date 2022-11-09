@@ -1,8 +1,8 @@
 import styles from "./ButtonProducts.module.css";
 
-const ButtonProducts = ( {children} ) => {
+const ButtonProducts = ( {children, onClick} ) => {
     return (
-        <section className={styles.card}>
+        <section className={styles.card} onClick={onClick} data-id={children}>
             <div className={styles.title}>
                 <img src={children.image} alt="Icone do menu" className={styles.image}></img>
                 <h1 className={styles.name}>{children.name}</h1>

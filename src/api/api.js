@@ -38,7 +38,7 @@ export const login = (email, password) => {
   });
 };
 
-export const importUsers = async () => {
+export const accessUsers = async () => {
   return await fetch('https://lab-api-bq.onrender.com/users', {
       method: 'GET',
       headers: {
@@ -57,3 +57,18 @@ export const accessProducts = async () => {
       },
   })
 }
+
+export const createOrder = (client, table, products) => {
+  return fetch('https://lab-api-bq.onrender.com/orders', {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: getToken(),
+    },
+    body: JSON.stringify({
+      client: client,
+      table: table,
+      products: products,
+    }),
+  });
+};
