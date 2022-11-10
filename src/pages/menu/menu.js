@@ -3,9 +3,7 @@ import { HeaderService } from "../../components/Header/Header";
 import { useEffect, useState } from "react";
 import { accessProducts } from "../../api/api";
 import { filterMenu } from "../../api/main";
-import ButtonProducts from "../../components/Buttons/ButtonProducts";
-import SelectMenu from "../../components/Buttons/SelectMenu";
-import ButtonKitchen from "../../components/Buttons/ButtonKitchen";
+import {ButtonProducts, ButtonKitchen, SelectMenu } from "../../components/Buttons/Buttons";
 import ItemCar from "../../components/itemInCar/item";
 import styles from "./menu.module.css";
 
@@ -32,16 +30,16 @@ export const Menu = () => {
     setCarrinho(total);
   }
 
+  const replaceImages = (products) => {
+    products.map((product) => product.image = `https://raw.githubusercontent.com/kabianca/burger-queen-api-client/Images/src/pages/menu/menu-img/${product.id}.png`)
+  };
+  // console.log(products);
+  replaceImages(products);
+  
   const handleType = ((e) => {
     setType(e.target.value);
     setActive(current => !current);
   });
-
-  const replaceImages = (products) => {
-    products.map((product) => product.image = `https://raw.githubusercontent.com/kabianca/burger-queen-api-client/Images/src/pages/menu/menu-img/${product.id}.png`)
-  };
-
-  replaceImages(products);
 
   let menu = filterMenu(products, type);
 

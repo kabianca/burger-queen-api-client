@@ -99,8 +99,8 @@ export const HeaderService = () => {
                             </NavLink>
                         </li>
                     </div>
-                    <li className={styles.item}>
-                        <RiLogoutBoxRLine />
+                    <li className={styles.item} >
+                        <RiLogoutBoxRLine/>
                     </li>
                 </ul>
             </nav>

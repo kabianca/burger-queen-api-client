@@ -1,5 +1,5 @@
 import { login } from '../../api/api';
-import ButtonSignin from '../../components/Buttons/ButtonSignin';
+import {ButtonSignin} from '../../components/Buttons/Buttons';
 import {render, screen, fireEvent} from '@testing-library/react';
 
 describe('Login function', () => {
