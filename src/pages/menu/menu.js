@@ -3,9 +3,7 @@ import {HeaderService} from "../../components/Header/Header";
 import { useEffect, useState } from "react";
 import { accessProducts } from "../../api/api";
 import { filterMenu } from "../../api/main";
-import ButtonProducts from "../../components/Buttons/ButtonProducts";
-import SelectMenu from "../../components/Buttons/SelectMenu";
-import ButtonKitchen from "../../components/Buttons/ButtonKitchen";
+import {ButtonProducts, ButtonKitchen, SelectMenu } from "../../components/Buttons/Buttons";
 import ItemCar from "../../components/itemInCar/item";
 // import { newImg } from "../../api/main";
 import styles from "./menu.module.css";
@@ -14,6 +12,7 @@ export const Menu = () => {
   const [products, setProducts] = useState([]);
   const [type, setType] = useState('');
   const [active, setActive] = useState(false);
+  const [carrinho, setCarrinho] = useState([]);
 
   useEffect(() => {
     accessProducts()
@@ -24,17 +23,22 @@ export const Menu = () => {
   }, []);
 
 
-  
   const replaceImages = (products) => {
     products.map((product) => product.image = `https://raw.githubusercontent.com/kabianca/burger-queen-api-client/Images/src/pages/menu/menu-img/${product.id}.png`)
   };
-  console.log(products);
+  // console.log(products);
   replaceImages(products);
   
   const handleType = ((e) => {
     setType(e.target.value);
     setActive(current => !current);
   });
+  const addProducts = (e) => {
+    const idItem = e.currentTarget.dataset.id;
+    console.log(idItem)
+    setCarrinho(carrinho.concat([idItem]));
+    console.log(carrinho);
+  }
 
   let menu = filterMenu(products, type);
 
@@ -59,7 +63,7 @@ export const Menu = () => {
       </div>
       <div className={styles.menuShopping}>
         <section className={styles.menu}>
-          {menu.map((product) => <ButtonProducts key={product.id}>{product}</ButtonProducts>)}
+          {menu.map((product) => <ButtonProducts key={product.id} onClick={addProducts}>{product}</ButtonProducts>)}
         </section>
         <section className={styles.shoppingCar}>
           <div className={styles.headerCar}>

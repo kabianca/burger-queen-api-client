@@ -1,0 +1,79 @@
+.btn_kitchen {
+    background-color: var(--color-yellow-service);
+    width: 70%;
+    height: 3.5vh;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.btn_select{
+    background: var(--color-gray-box);
+    border-radius: 3px;
+    padding: 1rem;
+    border: transparent;
+    width: 12rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-white);
+    cursor: pointer;
+    font-family: var(--font-products);
+    
+}
+
+.btn_signin {
+    background-color: var(--color-yellow-service);
+    width: 60%;
+    height: 4.5vh;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+/*          BOTÕES DOS PRODUTOS              */
+
+.card{
+    height: 8rem;
+    width: 48.9%;
+    display: flex;
+    flex-direction: column;
+    background: var(--color-gray-box);
+    border-radius: 10px;
+    justify-content: space-between;
+    padding: .5rem;
+    font-family: var(--font-products);
+}
+
+.title{
+    display: flex;
+    /* border: 2px solid red; */
+    height: 80%;
+}
+
+.image {
+    height: 100%;
+    width: 4rem;
+    /* border: 2px solid yellow; */
+}
+
+.name{
+    text-align: center;
+    color: var(--color-white);
+    font-size: .95rem;
+    margin: auto .2rem;
+    /* border: 2px solid green; */
+
+}
+
+.price{
+    padding: .15rem 0 .15rem 0;
+    text-align: center;
+    color: var( --color-yellow-service);
+    height: 20%;
+    font-weight: bold;
+    /* border: 2px solid blue; */
+}

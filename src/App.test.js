@@ -5,10 +5,18 @@ import App from './App';
 describe('full app rendering/navigating', () => {
     render(<App />);
     const linkElementLogin = screen.getByText(/Não possui conta/i);
+    const linkElementRegister = screen.getByText(/Já possui conta/i);
 
     test('should go to SignUp', () => {
         expect(linkElementLogin).toBeInTheDocument();
         fireEvent.click(screen.getByText('Cadastre-se'));
         expect(screen.getByText(/Já possui conta/i)).toBeInTheDocument();
     })
+
+    test('should go to Register', () => {
+        expect(linkElementRegister).toBeInTheDocument();
+        fireEvent.click(screen.getByText('Já possui conta'));
+        expect(screen.getByText(/Cadastre-se/i)).toBeInTheDocument();
+    })
+
 });

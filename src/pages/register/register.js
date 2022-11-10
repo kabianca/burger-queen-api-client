@@ -5,7 +5,7 @@ import "./register.css";
 import logoRegister from "../../assets/burger.png";
 import { createUser, setTokenRole } from "../../api/api";
 import { errors } from "../../api/data/errors";
-import ButtonSignin from "../../components/Buttons/ButtonSignin";
+import {ButtonSignin} from "../../components/Buttons/Buttons";
 import InputForm from "../../components/InputForm/InputForm";
 // import { newImg } from "../../api/main";
 

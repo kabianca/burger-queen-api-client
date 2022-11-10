@@ -7,7 +7,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 import { login, setTokenRole } from "../../api/api";
 import { errors } from "../../api/data/errors";
-import ButtonSignin from "../../components/Buttons/ButtonSignin";
+import {ButtonSignin} from "../../components/Buttons/Buttons";
 import InputForm from "../../components/InputForm/InputForm";
 
 export const Login = () => {
