@@ -9,7 +9,7 @@ import { Kitchen } from "./pages/kitchen/kitchen";
 import "./index.css";
 
 const App = () => (
-  <BrowserRouter>
+  <BrowserRouter className="app">
     <Routes>
       <Route exact path="/" element={<Login />} />
       <Route path="/register" element={<Register />} />

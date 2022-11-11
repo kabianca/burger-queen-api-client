@@ -1,7 +1,7 @@
 
 .container{
     background-color: var(--color-background);
-    height: 100vh;
+    height:100vh;
 }
 
 .btnMenu{
@@ -13,6 +13,7 @@
     height: 7vh;
     /* border: 1px red solid; */
 }
+
 
 .menuShopping {
     display: grid;
@@ -35,34 +36,46 @@
     background: var(--color-gray-box);
     position: relative;
     border-radius: 10px;
-    height: 80vh;
+    height:fit-content;
+    padding: 2rem 2rem;
     /* border: 1px yellow solid; */
 }
-.headerCar {
-    padding: 1vh 2vw;
-    width: 100%;
-}
+
 hr {
-    width: 80%;
+    width: 100%;
     margin: auto;
 }
 .input {
-    background-color: var(--color-gray);
-    border-color: var(--color-gray-box);
+    background-color: var(--color-gray-box);
+    border: transparent;
     width: 50%;
-    height: 32px;
+    /* height: 32px; */
+    margin-bottom: 1rem;
+    padding: 0 .5rem;
+    color: var(--color-white);
+    font-size: .8rem;
+    font-weight: bold;
 }
+#left{
+    border-right: .5px solid var(--color-white);
+    text-align: right;
+}
+
 .title, .total {
-    padding: 1vh 2vw;
-    font-size: 1.5rem;
-    text-align: left;
+    font-size: 1rem;
+    font-weight: bold;
 }
 .title { color: var(--color-white); }
-.total { color: var(--color-green); }
-
-.btnKitchen {
-    position: absolute;
-    text-align: center;
-    width: 100%;
-    bottom: 5vh;
+.total { 
+    color: var(--color-green);
+    margin-top: 2rem;
+    margin-bottom: 2rem;
 }
+.value{
+    display: flex;
+    justify-content: space-between;
+}
+#drafts{
+    min-height: 500px;
+}
+
