@@ -1,17 +1,18 @@
 .btn_kitchen {
     background-color: var(--color-yellow-service);
-    width: 70%;
+    width: 100%;
     height: 3.5vh;
     border-radius: 5px;
     border: none;
     cursor: pointer;
     font-size: 1rem;
     font-weight: 600;
+    box-shadow: 0 1px 5px  var(--color-button-shadow);
 }
 
 .btn_select{
     background: var(--color-gray-box);
-    border-radius: 3px;
+    border-radius: 10px;
     padding: 1rem;
     border: transparent;
     width: 12rem;
@@ -20,18 +21,19 @@
     color: var(--color-white);
     cursor: pointer;
     font-family: var(--font-products);
-    
+    box-shadow: 0 1px 5px  var(--color-button-shadow);    
 }
 
 .btn_signin {
     background-color: var(--color-yellow-service);
-    width: 60%;
+    width: 50%;
     height: 4.5vh;
     border-radius: 5px;
     border: none;
     cursor: pointer;
     font-size: 1.2rem;
     font-weight: 600;
+    box-shadow: 0 1px 5px  var(--color-button-shadow);
 }
 
 /*          BOTÕES DOS PRODUTOS              */
@@ -46,7 +48,10 @@
     justify-content: space-between;
     padding: .5rem;
     font-family: var(--font-products);
+    box-shadow: 0 1px 5px  var(--color-button-shadow);
+    cursor: pointer;
 }
+
 
 .title{
     display: flex;
@@ -66,7 +71,6 @@
     font-size: .95rem;
     margin: auto .2rem;
     /* border: 2px solid green; */
-
 }
 
 .price{

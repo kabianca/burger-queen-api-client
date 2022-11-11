@@ -5,6 +5,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: var(--font-products);
 }
 :root {
     --color-white: #FFFFFF;
@@ -17,7 +18,11 @@
     --color-gray-box: #403B3C;
     --color-yellow-service: #EBCE39;
     --color-yellow-kitchen: #F5E487;
+    --color-button-shadow: black;
     --font-products: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.app{
+    background: var(--color-background);
 }
 
 @media screen and (min-width: 1200px) {

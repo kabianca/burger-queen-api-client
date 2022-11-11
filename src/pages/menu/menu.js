@@ -74,15 +74,20 @@ export const Menu = () => {
         </section>
         <section className={styles.shoppingCar}>
           <div className={styles.headerCar}>
-            <input className={styles.input} type="text" />
-            <input className={styles.input} type="text" />
-            <h1 className={styles.title}> Pedido:</h1>
-            <hr />
+            <input className={styles.input} id={styles.left} placeholder="Nome Cliente" type="text" />
+            <input className={styles.input} placeholder="Mesa nº" type="text" />
+            <p className={styles.title}> Pedido</p>
+            <hr/>
+          </div>
+          <div id="draft">
             {carrinho.map((item) => <ItemCar key={item.id} onClick={() => handleRemoveItem(item)}>{item}</ItemCar>)}
           </div>
           <div className={styles.btnKitchen}>
             <hr />
-            <h1 className={styles.total}>Total: </h1>
+            <div className={styles.value}>
+              <p className={styles.total}>Total</p>
+              <p className={styles.total}>R$ 0</p>
+            </div>
             <ButtonKitchen />
           </div>
         </section>
