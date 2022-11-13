@@ -79,3 +79,47 @@ hr {
     min-height: 500px;
 }
 
+/* Ítens do carrinho */
+.item {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 1vw;
+    margin: 1vh 0;
+}
+
+.quantify {
+    display: flex;
+}
+.text {
+    font-size: 1.3rem;
+    color: var(--color-white);
+    text-align: center;
+}
+.minusPlus {
+    border: none;
+    background: none;
+    cursor: pointer;
+    margin: 0 2vw;
+    font-size: 1.7rem;
+    color: var(--color-yellow-service);
+}
+.delete {
+    border: none;
+    background: none;
+    cursor: pointer;
+    grid-column-start: 2;
+    color: var(--color-red);
+    font-family: var(--font-products);
+    font-weight: 700;
+    text-align: center;
+    text-shadow: 1px 1px black;
+    font-size: 1.5rem;
+}
+.separateItems {
+    opacity: 0.2;
+}
+
+.image{
+    height: 60px;
+    width: 60px;
+}

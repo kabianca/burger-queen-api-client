@@ -4,14 +4,19 @@ import { useEffect, useState } from "react";
 import { accessProducts } from "../../api/api";
 import { filterMenu } from "../../api/main";
 import {ButtonProducts, ButtonKitchen, SelectMenu } from "../../components/Buttons/Buttons";
-import ItemCar from "../../components/itemInCar/item";
 import styles from "./menu.module.css";
+import { AiFillMinusCircle } from "react-icons/ai";
+import { AiFillPlusCircle } from "react-icons/ai";
 
 export const Menu = () => {
   const [products, setProducts] = useState([]);
   const [type, setType] = useState('');
   const [active, setActive] = useState(false);
   const [carrinho, setCarrinho] = useState([]);
+  const [quantify, setQuantify] = useState(1);
+  // const [client, setClient] = useState('');
+  // const [table, setTable] = useState('');
+  // const [total, setTotal] = useState();
 
   useEffect(() => {
     accessProducts()
@@ -22,31 +27,45 @@ export const Menu = () => {
   }, []);
 
   useEffect(() => {
-      setCarrinho(carrinho);
+    setCarrinho(carrinho);
   }, [carrinho])
-
-  const addProducts = (obj) => {
-    const total = [...carrinho, obj];
-    setCarrinho(total);
-  }
-
-  const replaceImages = (products) => {
-    products.map((product) => product.image = `https://raw.githubusercontent.com/kabianca/burger-queen-api-client/Images/src/pages/menu/menu-img/${product.id}.png`)
-  };
-  // console.log(products);
-  replaceImages(products);
   
   const handleType = ((e) => {
     setType(e.target.value);
-    setActive(current => !current);
+    setActive(!active);
   });
-
+  
+  const replaceImages = (products) => {
+    products.map((product) => product.image = `https://raw.githubusercontent.com/kabianca/burger-queen-api-client/Images/src/pages/menu/menu-img/${product.id}.png`)
+  };
+  
+  replaceImages(products);
+  
   let menu = filterMenu(products, type);
+  
+  const addProducts = (obj) => {
+    const index = carrinho.findIndex((key) => key.id === obj.id);
+    if (index === -1) {
+      const total = [...carrinho, {...obj, quantify: 1}];
+      setCarrinho(total);
+    } else {
+      setQuantify(carrinho[index].quantify += 1);
+    }
+  }
+  
+  // console.log(carrinho)
+
+  function increase (item) {
+    setQuantify(item.quantify += 1)
+  }
+
+  function decrease (item) {
+    setQuantify(item.quantify -= 1)
+  }
 
   const handleRemoveItem = (obj) => {
     const removeItem = carrinho.filter((key) => key !== obj)
     setCarrinho(removeItem)
-    console.log(removeItem)
   };
 
   return (
@@ -55,11 +74,8 @@ export const Menu = () => {
       <div className={styles.btnMenu}>
         <SelectMenu
           onClick={handleType}
-          value={"breakfast"}
-          style={{
-            backgroundColor: active ? '#EBCE39' : '#403B3C',
-            color: active ? '#000' : '#FFF',
-          }}>
+          className={active ? "btn_select" : "btn_select_active"}
+          value={"breakfast"}>
           Café da Manhã
         </SelectMenu>
         <SelectMenu
@@ -80,7 +96,29 @@ export const Menu = () => {
             <hr/>
           </div>
           <div id="draft">
-            {carrinho.map((item) => <ItemCar key={item.id} onClick={() => handleRemoveItem(item)}>{item}</ItemCar>)}
+            {carrinho.map((item) => {
+              return (
+                <>
+                  <div key={item.id} className={styles.item}>
+                    <img src={item.image} alt="Icone do menu" className={styles.image}></img>
+                    <h1 className={styles.text}>{item.name}</h1>
+                    <div className={styles.quantify}>
+                      <AiFillMinusCircle
+                        className={styles.minusPlus}
+                        onClick={() => decrease(item)}
+                      />
+                      <h1 className={styles.text}>{item.quantify}</h1>
+                      <AiFillPlusCircle 
+                        className={styles.minusPlus}
+                        onClick={() => increase(item)} 
+                      />
+                    </div>
+                    <p className={styles.text}>R$ {item.price}</p>
+                    <button className={styles.delete} onClick={() => handleRemoveItem(item)}>Excluir</button>
+                  </div>
+                </>
+              )
+            })}
           </div>
           <div className={styles.btnKitchen}>
             <hr />
