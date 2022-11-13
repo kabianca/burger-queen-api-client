@@ -98,9 +98,9 @@ export const Menu = () => {
           <div id="draft">
             {carrinho.map((item) => {
               return (
-                <>
-                  <div key={item.id} className={styles.item}>
-                    <img src={item.image} alt="Icone do menu" className={styles.image}></img>
+                <section key={item.id} className={styles.item}>
+                  <img src={item.image} alt="Icone do menu" className={styles.image}></img>
+                  <div id={styles.infoProduct}>
                     <h1 className={styles.text}>{item.name}</h1>
                     <div className={styles.quantify}>
                       <AiFillMinusCircle
@@ -113,10 +113,13 @@ export const Menu = () => {
                         onClick={() => increase(item)} 
                       />
                     </div>
-                    <p className={styles.text}>R$ {item.price}</p>
                     <button className={styles.delete} onClick={() => handleRemoveItem(item)}>Excluir</button>
                   </div>
-                </>
+                  <div id={styles.priceBoxItem}>
+                    <p className={styles.price}>R$</p>
+                    <p className={styles.price}>{item.price}</p>
+                  </div>
+                </section>
               )
             })}
           </div>

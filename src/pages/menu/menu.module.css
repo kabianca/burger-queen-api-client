@@ -75,26 +75,49 @@ hr {
     display: flex;
     justify-content: space-between;
 }
-#drafts{
+/* #drafts{
     min-height: 500px;
-}
+} */
 
 /* Ítens do carrinho */
 .item {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    column-gap: 1vw;
-    margin: 1vh 0;
+    display: flex;
+    margin: 1rem 0;
+    border: 2px solid blue;
+}
+
+.image{
+    height: fit-content;
+    width: 9vw;
+    margin-right: .5rem;
+    border: 2px solid yellow;
+}
+
+#infoProduct{
+    display: flex;
+    flex-direction: column;
+    border: 2px solid red;
+    gap: .5rem;
+}
+
+.text {
+    font-size: 1rem;
+    color: var(--color-white);
+    text-align: left;
 }
 
 .quantify {
     display: flex;
+    border: 2px solid pink;
+    gap: .5rem;
 }
-.text {
-    font-size: 1.3rem;
-    color: var(--color-white);
-    text-align: center;
+
+.minusPlus {
+    font-size: 1em;
+    color: var(--color-yellow-service);
 }
+
+/* 
 .minusPlus {
     border: none;
     background: none;
@@ -102,8 +125,13 @@ hr {
     margin: 0 2vw;
     font-size: 1.7rem;
     color: var(--color-yellow-service);
-}
+} */
+
 .delete {
+    color: var(--color-red);
+    font-size: 1rem;
+}
+/* .delete {
     border: none;
     background: none;
     cursor: pointer;
@@ -114,12 +142,22 @@ hr {
     text-align: center;
     text-shadow: 1px 1px black;
     font-size: 1.5rem;
+} */
+
+#priceBoxItem{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 2px solid orange;
+    align-items: center;
 }
-.separateItems {
-    opacity: 0.2;
+.price{
+    text-align: right;
+    color: var(--color-white);
+    font-weight: bold;
 }
 
-.image{
-    height: 60px;
-    width: 60px;
-}
+/* .separateItems {
+    opacity: 0.2;
+} */
+
