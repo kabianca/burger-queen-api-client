@@ -10,7 +10,7 @@
     box-shadow: 0 1px 5px  var(--color-button-shadow);
 }
 
-.btn_select{
+/* .btn_select{
     background: var(--color-gray-box);
     border-radius: 10px;
     padding: 1rem;
@@ -36,7 +36,7 @@
     cursor: pointer;
     font-family: var(--font-products);
     box-shadow: 0 1px 5px  var(--color-button-shadow);    
-}
+} */
 
 .btn_signin {
     background-color: var(--color-yellow-service);
@@ -67,6 +67,9 @@
     
 }
 
+.title, .image, .name, .price {
+    background-color: var(--color-gray-box);
+}
 
 .title{
     display: flex;
@@ -87,7 +90,7 @@
 .name{
     text-align: center;
     color: var(--color-white);
-    font-size: .9rem;
+    font-size: .95rem;
     margin: auto .2rem;
     background: var(--color-gray-box);
 

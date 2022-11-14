@@ -11,30 +11,31 @@ import { AiFillPlusCircle } from "react-icons/ai";
 export const Menu = () => {
   const [products, setProducts] = useState([]);
   const [type, setType] = useState('');
-  const [active, setActive] = useState(false);
+  const [active, setActive] = useState(true);
   const [carrinho, setCarrinho] = useState([]);
   const [quantify, setQuantify] = useState(1);
+  const [total, setTotal] = useState(0);
   // const [client, setClient] = useState('');
   // const [table, setTable] = useState('');
-  // const [total, setTotal] = useState();
 
+  // ==== AQUISIÇÃO DOS DADOS ====
   useEffect(() => {
     accessProducts()
       .then((response) => response.json())
       .then((data) => {
-        setProducts(data)
+        setProducts(data);
       });
   }, []);
 
-  useEffect(() => {
-    setCarrinho(carrinho);
-  }, [carrinho])
-  
+  // ==== ESPECIFICANDO O CARDÁPIO (CAFÉ DA MANHÃ OU PRINCIPAL) ====
   const handleType = ((e) => {
     setType(e.target.value);
     setActive(!active);
   });
+
+  let menu = filterMenu(products, type);
   
+  // ==== SUBSTITUIÇÃO DAS IMAGENS ====
   const replaceImages = (products) => {
     products.forEach((product) => {
       product.image = `https://raw.githubusercontent.com/kabianca/burger-queen-api-client/Images/src/pages/menu/menu-img/${product.id}.png`
@@ -46,58 +47,68 @@ export const Menu = () => {
   
   replaceImages(products);
   
-  let menu = filterMenu(products, type);
-  
+  // ==== CÁLCULO DO PREÇO TOTAL DO PEDIDO ====
+  const price = carrinho.map((key) => key.qtd * key.price);
+  const priceReduce = price.reduce((a, b) => a + b, 0);
+
+  useEffect(() => {
+    setCarrinho(carrinho);
+    setTotal(priceReduce);
+  }, [carrinho, priceReduce])
+
   const addProducts = (obj) => {
     const index = carrinho.findIndex((key) => key.id === obj.id);
     if (index === -1) {
-      const total = [...carrinho, {...obj, quantify: 1}];
-      setCarrinho(total);
+      const itensOrder = [...carrinho, {...obj, qtd: 1}];
+      setCarrinho(itensOrder);
     } else {
-      setQuantify(carrinho[index].quantify += 1);
+      setQuantify(carrinho[index].qtd += 1);
+      console.log(quantify);
     }
   }
   
   function increase (item) {
-    setQuantify(item.quantify += 1)
+    setQuantify(item.qtd += 1);
   }
 
   function decrease (item) {
-    setQuantify(item.quantify -= 1)
+    setQuantify(item.qtd -= 1);
   }
 
+  // ==== EXCLUINDO ÍTENS DO CARRINHO ====
   const handleRemoveItem = (obj) => {
-    const removeItem = carrinho.filter((key) => key !== obj)
-    setCarrinho(removeItem)
+    const removeItem = carrinho.filter((key) => key !== obj);
+    setCarrinho(removeItem);
   };
 
   return (
-    <section className={styles.container}>
+    <div className={styles.container}>
       <HeaderService />
       <div className={styles.btnMenu}>
         <SelectMenu
           onClick={handleType}
-          className={active ? "btn_select" : "btn_select_active"}
+          className={active ? styles.btn_select : styles.btn_select_active}
           value={"breakfast"}>
           Café da Manhã
         </SelectMenu>
         <SelectMenu
           onClick={handleType}
+          className={active ? styles.btn_select_active : styles.btn_select}
           value={"all-day"}>
           Principal
         </SelectMenu>
       </div>
-      <div className={styles.menuShopping}>
+      <main className={styles.menuShopping}>
         <section className={styles.menu}>
           {menu.map((product) => <ButtonProducts key={product.id} onClick={() => addProducts(product)}>{product}</ButtonProducts>)}
         </section>
-        <section className={styles.shoppingCar}>
-          <div className={styles.headerCar}>
+        <aside className={styles.shoppingCar}>
+          <section className={styles.headerCar}>
             <input className={styles.input} id={styles.left} placeholder="Nome Cliente" type="text" />
             <input className={styles.input} placeholder="Mesa nº" type="text" />
             <p className={styles.title}> Pedido</p>
             <hr/>
-          </div>
+          </section>
           <div id={styles.draft}>
             {carrinho.map((item) => {
               return (
@@ -112,7 +123,7 @@ export const Menu = () => {
                           className={styles.minusPlus}
                           onClick={() => decrease(item)}
                         />
-                        <h1 className={styles.text}>{item.quantify}</h1>
+                        <h1 className={styles.text}>{item.qtd}</h1>
                         <AiFillPlusCircle 
                           className={styles.minusPlus}
                           onClick={() => increase(item)} 
@@ -129,16 +140,22 @@ export const Menu = () => {
               )
             })}
           </div>
-          <div className={styles.btnKitchen}>
+          <section className={styles.btnKitchen}>
             <hr />
-            <div className={styles.value}>
-              <p className={styles.total}>Total</p>
-              <p className={styles.total}>R$ 0</p>
-            </div>
+            <table className={styles.tableCar}>
+              <tbody className={styles.value}>
+                <tr className={styles.tableRow}>
+                  <td className={styles.total}>Total</td>
+                </tr>
+                <tr className={styles.tableRow}>
+                  <td className={styles.total}>R$ {total}</td>
+                </tr>
+              </tbody>
+            </table>
             <ButtonKitchen />
-          </div>
-        </section>
-      </div>
-    </section>
+          </section>
+        </aside>
+      </main>
+    </div>
   );
 };

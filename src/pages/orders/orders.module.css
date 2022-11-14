@@ -1,0 +1,48 @@
+.title {
+    background-color: var(--color-yellow-kitchen);
+    border-radius: 7px 7px 0 0;
+    margin: 2vh auto 0;
+    padding: 0.8vh 0.8vw;
+    width: 80%;
+    font-family: var(--font-products);
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+.delivery, .kitchen, .finished {
+    overflow-y: auto;
+    margin: auto;
+    width: 80%;
+    height: 20vh;
+    border-collapse: collapse;
+    font-size: 1.3rem;
+    color: var(--color-white);
+    text-align: center;
+}
+
+.tableTitleD, .tableTitleK, .tableTitleF, .kitchenRow, .deliveryRow, .finishedRow {
+    background-color: var(--color-gray-box);
+    border-bottom: 1px solid var(--color-white);
+    padding: 1.2vh 1.5vw;
+}
+
+.input {
+    background-color: var(--color-green);
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 2vh 2.5vw;
+}
+
+.tableTitleD {
+    color: var(--color-green);
+}
+
+.tableTitleK {
+    color: var(--color-yellow-service);
+}
+
+.tableTitleF {
+    color: var(--color-gray);
+}

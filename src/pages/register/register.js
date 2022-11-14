@@ -7,7 +7,6 @@ import { createUser, setTokenRole } from "../../api/api";
 import { errors } from "../../api/data/errors";
 import {ButtonSignin} from "../../components/Buttons/Buttons";
 import InputForm from "../../components/InputForm/InputForm";
-// import { newImg } from "../../api/main";
 
 export const Register = () => {
     const [name, setName] = useState("");
@@ -38,9 +37,9 @@ export const Register = () => {
 
   return (
     <section className="App">
-      <div id="logo-register">
+      <figure id="logo-register">
         <img src={logoRegister} alt="logo-hamburger" id="logo-img-register"/>
-      </div>
+      </figure>
       <form id="form-register">
         <InputForm
           type="text"
