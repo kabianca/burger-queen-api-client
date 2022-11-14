@@ -6,6 +6,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: var(--font-products);
+    background: var(--color-background);
 }
 :root {
     --color-white: #FFFFFF;
