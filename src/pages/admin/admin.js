@@ -19,8 +19,8 @@ export const Admin = () => {
       <section className="App">
         <HeaderAdmin/>
         <h1>Gestão da Equipe</h1>
-        <h3> Cadastro de Pessoal </h3>
-        <h3> Listagem de Pessoal </h3>
+        <h2> Cadastro de Pessoal </h2>
+        <h2> Listagem de Pessoal </h2>
         {users.map((user) => <User key={user.id}>{user}</User>)}
       </section>
     );

@@ -16,9 +16,9 @@ export const ButtonSignin = ( {children, onClick} ) => {
     )
 };
 
-export const SelectMenu = ( {children, onClick, value} ) => {
+export const SelectMenu = ( {children, onClick, className, value} ) => {
     return (
-        <button type="button" className={styles.btn_select} onClick={onClick} value={value}>
+        <button type="button" className={className} onClick={onClick} value={value}>
             {children}
         </button>
     )
