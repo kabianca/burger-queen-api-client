@@ -36,7 +36,12 @@ export const Menu = () => {
   });
   
   const replaceImages = (products) => {
-    products.map((product) => product.image = `https://raw.githubusercontent.com/kabianca/burger-queen-api-client/Images/src/pages/menu/menu-img/${product.id}.png`)
+    products.forEach((product) => {
+      product.image = `https://raw.githubusercontent.com/kabianca/burger-queen-api-client/Images/src/pages/menu/menu-img/${product.id}.png`
+      if(product["sub_type"] === "hamburguer"){
+        product.price < 15 ? product.name = product.flavor + " simples" : product.name = product.flavor + " duplo"
+      }
+    })
   };
   
   replaceImages(products);
@@ -53,8 +58,6 @@ export const Menu = () => {
     }
   }
   
-  // console.log(carrinho)
-
   function increase (item) {
     setQuantify(item.quantify += 1)
   }
@@ -95,25 +98,28 @@ export const Menu = () => {
             <p className={styles.title}> Pedido</p>
             <hr/>
           </div>
-          <div id="draft">
+          <div id={styles.draft}>
             {carrinho.map((item) => {
               return (
                 <section key={item.id} className={styles.item}>
-                  <img src={item.image} alt="Icone do menu" className={styles.image}></img>
-                  <div id={styles.infoProduct}>
-                    <h1 className={styles.text}>{item.name}</h1>
-                    <div className={styles.quantify}>
-                      <AiFillMinusCircle
-                        className={styles.minusPlus}
-                        onClick={() => decrease(item)}
-                      />
-                      <h1 className={styles.text}>{item.quantify}</h1>
-                      <AiFillPlusCircle 
-                        className={styles.minusPlus}
-                        onClick={() => increase(item)} 
-                      />
+                  <p id={styles.complement}>{"+".concat(item.complement) ? item.complement : ""}</p>
+                  <div id={styles.all}>
+                    <img src={item.image} alt="Icone do menu" className={styles.image}></img>
+                    <div id={styles.infoProduct}>
+                      <h1 className={styles.text}>{item.name}</h1>
+                      <div className={styles.quantify}>
+                        <AiFillMinusCircle
+                          className={styles.minusPlus}
+                          onClick={() => decrease(item)}
+                        />
+                        <h1 className={styles.text}>{item.quantify}</h1>
+                        <AiFillPlusCircle 
+                          className={styles.minusPlus}
+                          onClick={() => increase(item)} 
+                        />
+                      </div>
+                      <button className={styles.delete} onClick={() => handleRemoveItem(item)}>Excluir</button>
                     </div>
-                    <button className={styles.delete} onClick={() => handleRemoveItem(item)}>Excluir</button>
                   </div>
                   <div id={styles.priceBoxItem}>
                     <p className={styles.price}>R$</p>

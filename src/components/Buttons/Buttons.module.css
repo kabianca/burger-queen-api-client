@@ -60,10 +60,11 @@
     background: var(--color-gray-box);
     border-radius: 10px;
     justify-content: space-between;
-    padding: .5rem;
+    padding: .3rem;
     font-family: var(--font-products);
     box-shadow: 0 1px 5px  var(--color-button-shadow);
     cursor: pointer;
+    
 }
 
 
@@ -71,19 +72,25 @@
     display: flex;
     /* border: 2px solid red; */
     height: 80%;
+    background: var(--color-gray-box);
+
 }
 
 .image {
     width: 9vw;
     height:fit-content;
+    background: var(--color-gray-box);
+
     /* border: 2px solid yellow; */
 }
 
 .name{
     text-align: center;
     color: var(--color-white);
-    font-size: .95rem;
+    font-size: .9rem;
     margin: auto .2rem;
+    background: var(--color-gray-box);
+
     /* border: 2px solid green; */
 }
 
@@ -93,5 +100,7 @@
     color: var( --color-yellow-service);
     height: 20%;
     font-weight: bold;
+    background: var(--color-gray-box);
+
     /* border: 2px solid blue; */
 }
