@@ -17,11 +17,11 @@ export const Login = () => {
     e.preventDefault();
     login(email, password)
       .then((response) => response.json())
-      .then((response) => {
-        if (response.code) {
-          throw (response.message)
+      .then((obj) => {
+        if (obj.code) {
+          throw (obj.message)
         } else {
-          return response
+          return obj
         }
       })
         .then((data) => {
@@ -35,9 +35,7 @@ export const Login = () => {
             navigate("/admin");
           }
       })
-      .catch((error) => {
-        setError(error);
-      });
+      .catch((error) => setError(error));
   };
 
   return (
