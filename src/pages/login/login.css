@@ -43,6 +43,10 @@
     
 }
 
+#errorMsg{
+    background-color: var(--color-gray);
+}
+
 @media screen and (min-width: 1200px) {
     #logo-login {
         background-size: 100%;

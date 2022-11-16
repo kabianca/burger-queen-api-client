@@ -4,7 +4,6 @@ import React from "react";
 import "./register.css";
 import logoRegister from "../../assets/burger.png";
 import { createUser, setTokenRole } from "../../api/api";
-import { errors } from "../../api/data/errors";
 import {ButtonSignin} from "../../components/Buttons/Buttons";
 import InputForm from "../../components/InputForm/InputForm";
 
@@ -14,17 +13,18 @@ export const Register = () => {
     const [password, setPassword] = useState("");
     const [role, setRole] = useState("service");
     const navigate = useNavigate();
-    const arrayErrors = errors.errors;
+    const [error, setError] = useState("");
   
     const handleCreateUser = (e) => {
       e.preventDefault();
       createUser(name, email, password, role)
-        .then((response) => {
-          if (response.status === 200) {
-            return response.json();
+        .then((response) => response.json())
+        .then((obj) => {
+          if (obj.code) {
+            throw (obj.message)
+          } else {
+            return obj
           }
-          const printError = document.querySelector('#errorMsg');
-          printError.innerHTML = arrayErrors[0].register[response.status];
         })
         .then((data) => {
           if(!data) return;
@@ -32,7 +32,7 @@ export const Register = () => {
           console.log(data);
           navigate("/");
         })
-        .catch((error) => console.log(error));
+        .catch((error) => setError(error));
     };
 
   return (
@@ -74,7 +74,7 @@ export const Register = () => {
         <ButtonSignin onClick={handleCreateUser}>
           CADASTRAR
         </ButtonSignin>
-        <p id="errorMsg"></p>
+        <p id="errorMsg">{error}</p>
         <p id="text-home">Já possui conta? <Link to="/" className="link-home"> Entrar </Link></p>
       </form>
     </section>
