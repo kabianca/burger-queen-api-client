@@ -28,9 +28,11 @@ export const Menu = () => {
   }, []);
 
   // ==== ESPECIFICANDO O CARDÁPIO (CAFÉ DA MANHÃ OU PRINCIPAL) ====
+
   const handleType = ((e) => {
     setType(e.target.value);
     setActive(!active);
+    
   });
 
   let menu = filterMenu(products, type);
@@ -66,6 +68,12 @@ export const Menu = () => {
       console.log(quantify);
     }
   }
+
+  const complements = (obj) => {
+    console.log(obj);
+    
+    // setType(obj.name);
+  }
   
   function increase (item) {
     setQuantify(item.qtd += 1);
@@ -100,7 +108,7 @@ export const Menu = () => {
       </div>
       <main className={styles.menuShopping}>
         <section className={styles.menu}>
-          {menu.map((product) => <ButtonProducts key={product.id} onClick={() => addProducts(product)}>{product}</ButtonProducts>)}
+          {menu.map((product) => <ButtonProducts key={product.id} onClick={() => product.sub_type === 'hamburguer' ? complements(product) : addProducts(product)}>{product}</ButtonProducts>)}
         </section>
         <aside className={styles.shoppingCar}>
           <section className={styles.headerCar}>
