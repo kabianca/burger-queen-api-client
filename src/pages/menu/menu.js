@@ -3,10 +3,12 @@ import { HeaderService } from "../../components/Header/Header";
 import { useEffect, useState } from "react";
 import { accessProducts } from "../../api/api";
 import { filterMenu } from "../../api/main";
-import {ButtonProducts, ButtonKitchen, SelectMenu } from "../../components/Buttons/Buttons";
+import {ButtonProducts, ButtonComplements, ButtonKitchen, SelectMenu } from "../../components/Buttons/Buttons";
 import styles from "./menu.module.css";
 import { AiFillMinusCircle } from "react-icons/ai";
 import { AiFillPlusCircle } from "react-icons/ai";
+
+
 
 export const Menu = () => {
   const [products, setProducts] = useState([]);
@@ -32,7 +34,6 @@ export const Menu = () => {
   const handleType = ((e) => {
     setType(e.target.value);
     setActive(!active);
-    
   });
 
   let menu = filterMenu(products, type);
@@ -67,12 +68,13 @@ export const Menu = () => {
       setQuantify(carrinho[index].qtd += 1);
       console.log(quantify);
     }
+    if(obj.sub_type==="hamburguer"){
+      setType("all-day")
+    }
   }
 
   const complements = (obj) => {
-    console.log(obj);
-    
-    // setType(obj.name);
+    setType(obj.name);
   }
   
   function increase (item) {
@@ -108,7 +110,10 @@ export const Menu = () => {
       </div>
       <main className={styles.menuShopping}>
         <section className={styles.menu}>
-          {menu.map((product) => <ButtonProducts key={product.id} onClick={() => product.sub_type === 'hamburguer' ? complements(product) : addProducts(product)}>{product}</ButtonProducts>)}
+          { menu.length < 4 ?
+            menu.map((product) => <ButtonComplements key={product.id} onClick={() => addProducts(product)}>{product}</ButtonComplements>) :
+            menu.map((product) => <ButtonProducts key={product.id} onClick={() => product.sub_type === 'hamburguer' ? complements(product) : addProducts(product)}>{product}</ButtonProducts>)
+          }
         </section>
         <aside className={styles.shoppingCar}>
           <section className={styles.headerCar}>
@@ -121,7 +126,7 @@ export const Menu = () => {
             {carrinho.map((item) => {
               return (
                 <section key={item.id} className={styles.item}>
-                  <p id={styles.complement}>{"+".concat(item.complement) ? item.complement : ""}</p>
+                  <p id={styles.complement}>{item.complement ? "+ " + item.complement : ""}</p>
                   <div id={styles.all}>
                     <img src={item.image} alt="Icone do menu" className={styles.image}></img>
                     <div id={styles.infoProduct}>
