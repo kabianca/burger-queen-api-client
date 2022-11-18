@@ -9,40 +9,41 @@
     text-align: center;
 }
 
-.delivery, .kitchen, .finished {
+.table {
     overflow-y: auto;
+}
+
+.delivery, .kitchen, .finished {
     margin: auto;
     width: 80%;
-    height: 20vh;
+    height: 20%;
     border-collapse: collapse;
     font-size: 1.3rem;
     color: var(--color-white);
     text-align: center;
+    box-shadow: 0 1px 5px  var(--color-button-shadow);
 }
 
-.tableTitleD, .tableTitleK, .tableTitleF, .kitchenRow, .deliveryRow, .finishedRow {
+.tableTitleD, .tableTitleK, .tableTitleF, .kitchenColumn, .deliveryColumn, .finishedColumn {
     background-color: var(--color-gray-box);
-    border-bottom: 1px solid var(--color-white);
     padding: 1.2vh 1.5vw;
+}
+
+.delivery tr, .kitchen tr, .finished tr{
+    border-bottom: 1px solid var(--color-white);
 }
 
 .input {
     background-color: var(--color-green);
+    padding: 2vh 2.5vw;
     border: none;
     border-radius: 5px;
     text-decoration: none;
     cursor: pointer;
-    padding: 2vh 2.5vw;
 }
 
-.tableTitleD {
-    color: var(--color-green);
-}
+.tableTitleD { color: var(--color-green); }
 
-.tableTitleK {
-    color: var(--color-yellow-service);
-}
+.tableTitleK { color: var(--color-yellow-service); }
 
-.tableTitleF {
-    color: var(--color-gray);
-}
+.tableTitleF { color: var(--color-gray); }

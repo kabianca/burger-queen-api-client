@@ -13,14 +13,13 @@ import { AiFillPlusCircle } from "react-icons/ai";
 export const Menu = () => {
   const [products, setProducts] = useState([]);
   const [type, setType] = useState('');
-  const [active, setActive] = useState(true);
+  const [active, setActive] = useState('');
   const [carrinho, setCarrinho] = useState([]);
   const [quantify, setQuantify] = useState(1);
   const [total, setTotal] = useState(0);
   // const [client, setClient] = useState('');
   // const [table, setTable] = useState('');
 
-  // ==== AQUISIÇÃO DOS DADOS ====
   useEffect(() => {
     accessProducts()
       .then((response) => response.json())
@@ -29,16 +28,14 @@ export const Menu = () => {
       });
   }, []);
 
-  // ==== ESPECIFICANDO O CARDÁPIO (CAFÉ DA MANHÃ OU PRINCIPAL) ====
-
   const handleType = ((e) => {
     setType(e.target.value);
-    setActive(!active);
+    setActive(e.target.value);
+    
   });
 
   let menu = filterMenu(products, type);
   
-  // ==== SUBSTITUIÇÃO DAS IMAGENS ====
   const replaceImages = (products) => {
     products.forEach((product) => {
       product.image = `https://raw.githubusercontent.com/kabianca/burger-queen-api-client/Images/src/pages/menu/menu-img/${product.id}.png`
@@ -50,7 +47,6 @@ export const Menu = () => {
   
   replaceImages(products);
   
-  // ==== CÁLCULO DO PREÇO TOTAL DO PEDIDO ====
   const price = carrinho.map((key) => key.qtd * key.price);
   const priceReduce = price.reduce((a, b) => a + b, 0);
 
@@ -85,7 +81,6 @@ export const Menu = () => {
     setQuantify(item.qtd -= 1);
   }
 
-  // ==== EXCLUINDO ÍTENS DO CARRINHO ====
   const handleRemoveItem = (obj) => {
     const removeItem = carrinho.filter((key) => key !== obj);
     setCarrinho(removeItem);
@@ -97,13 +92,13 @@ export const Menu = () => {
       <div className={styles.btnMenu}>
         <SelectMenu
           onClick={handleType}
-          className={active ? styles.btn_select : styles.btn_select_active}
+          className={(active === 'breakfast') ? styles.btn_select_active : styles.btn_select}
           value={"breakfast"}>
           Café da Manhã
         </SelectMenu>
         <SelectMenu
           onClick={handleType}
-          className={active ? styles.btn_select_active : styles.btn_select}
+          className={(active === "all-day") ? styles.btn_select_active : styles.btn_select}
           value={"all-day"}>
           Principal
         </SelectMenu>

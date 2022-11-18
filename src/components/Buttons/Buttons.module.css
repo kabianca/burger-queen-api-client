@@ -10,34 +10,6 @@
     box-shadow: 0 1px 5px  var(--color-button-shadow);
 }
 
-/* .btn_select{
-    background: var(--color-gray-box);
-    border-radius: 10px;
-    padding: 1rem;
-    border: transparent;
-    width: 12rem;
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: var(--color-white);
-    cursor: pointer;
-    font-family: var(--font-products);
-    box-shadow: 0 1px 5px  var(--color-button-shadow);    
-}
-
-.btn_select_active {
-    background: var(--color-yellow-service);
-    border-radius: 10px;
-    padding: 1rem;
-    border: transparent;
-    width: 12rem;
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: var(--color-black);
-    cursor: pointer;
-    font-family: var(--font-products);
-    box-shadow: 0 1px 5px  var(--color-button-shadow);    
-} */
-
 .btn_signin {
     background-color: var(--color-yellow-service);
     width: 50%;
