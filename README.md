@@ -100,12 +100,12 @@ O [Product Owner](https://www.youtube.com/watch?v=7lhnYbmovb4) nos apresentou es
 
 * **Critérios de aceitação**
 
-    - [ ] Anotar o nome do cliente.
-    - [ ] Adicionar produtos aos pedidos.
-    - [ ] Excluir produtos.
-    - [ ] Ver resumo e o total da compra.
+    - [x] Anotar o nome do cliente.
+    - [x] Adicionar produtos aos pedidos.
+    - [x] Excluir produtos.
+    - [x] Ver resumo e o total da compra.
     - [ ] Enviar o pedido para a cozinha (guardar em algum banco de dados).
-    - [ ] Funcionar bem em um tablet.
+    - [x] Funcionar bem em um tablet.
 
 * **Definição de pronto**
 

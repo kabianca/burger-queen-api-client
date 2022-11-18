@@ -15,6 +15,8 @@ export const Admin = () => {
       });
   }, []);
 
+  console.log(users)
+
     return (
       <section className="App">
         <HeaderAdmin/>
