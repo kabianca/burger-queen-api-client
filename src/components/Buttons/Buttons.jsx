@@ -1,4 +1,7 @@
 import styles from "./Buttons.module.css";
+import ovo from "../../assets/ovo.png";
+import queijo from "../../assets/queijo.png";
+import nullComplement from "../../assets/null.png";
 
 export const ButtonKitchen = ( {onClick} ) => {
     return (
@@ -32,6 +35,19 @@ export const ButtonProducts = ( {children, onClick} ) => {
                 <h1 className={styles.name}>{children.name}</h1>
             </div>
             <p className={styles.price}>R$ {children.price}</p>
+        </section>
+    )
+};
+
+export const ButtonComplements = ( {children, onClick} ) => {
+    const foto = children.complement === "ovo" ? ovo : queijo
+    return (
+        <section className={styles.card} onClick={onClick} data-id={children.id}>
+            <div className={styles.title}>
+                <img src={children.complement ? foto : nullComplement}alt="Icone do menu" className={styles.image}></img>
+                <h1 className={styles.name}>{children.complement ? children.complement : "Sem complemento"}</h1>
+            </div>
+            <p className={styles.price}>{children.complement ? "R$ 1" : ""}</p>
         </section>
     )
 };
