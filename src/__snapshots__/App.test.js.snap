@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should take a snapshot 1`] = `
+<DocumentFragment>
+  <figure
+    id="logo-login"
+  >
+    <img
+      alt="logo-hamburger"
+      id="logo-img-login"
+      src="burger.png"
+    />
+  </figure>
+  <form
+    id="form-login"
+  >
+    <input
+      class="inputForm"
+      placeholder="E-MAIL"
+      type="email"
+    />
+    <input
+      class="inputForm"
+      placeholder="SENHA"
+      type="password"
+    />
+    <button
+      class="btn_signin"
+      type="button"
+    >
+      ENTRAR
+    </button>
+    <p
+      id="errorMsg"
+    />
+    <p
+      id="text-home"
+    >
+      Não possui conta? 
+      <a
+        class="link-home"
+        href="/register"
+      >
+        Cadastre-se
+      </a>
+    </p>
+  </form>
+</DocumentFragment>
+`;

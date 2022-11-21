@@ -13,7 +13,7 @@ export const createUser = (name, email, password, role) => {
   return fetch('https://lab-api-bq.onrender.com/users', {
     method: "POST",
     headers: {
-      "Content-Type": "application/json; charset=UTF-8"
+      "Content-Type": "application/json"
     },
     body: JSON.stringify({
       name: name,
@@ -38,8 +38,8 @@ export const login = (email, password) => {
   });
 };
 
-export const accessUsers = async () => {
-  return await fetch('https://lab-api-bq.onrender.com/users', {
+export const accessUsers = () => {
+  return fetch('https://lab-api-bq.onrender.com/users', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -48,8 +48,8 @@ export const accessUsers = async () => {
   })
 }
 
-export const accessProducts = async () => {
-  return await fetch('https://lab-api-bq.onrender.com/products', {
+export const accessProducts = () => {
+  return fetch('https://lab-api-bq.onrender.com/products', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -58,7 +58,7 @@ export const accessProducts = async () => {
   })
 }
 
-export const createOrder = (client, table, products) => {
+export const createOrder = (order) => {
   return fetch('https://lab-api-bq.onrender.com/orders', {
     method: "POST",
     headers: {
@@ -66,9 +66,19 @@ export const createOrder = (client, table, products) => {
       Authorization: getToken(),
     },
     body: JSON.stringify({
-      client: client,
-      table: table,
-      products: products,
+      client: order.client,
+      table: order.table,
+      products: order.products,
     }),
   });
 };
+
+export const accessOrders = () => {
+  return fetch('https://lab-api-bq.onrender.com/orders', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': getToken(),
+      },
+  })
+}
