@@ -11,13 +11,16 @@ export const Register = () => {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [role, setRole] = useState("service");
-    const navigate = useNavigate();
+    const [roleUser, setRoleUser] = useState("");
     const [error, setError] = useState("");
+    const navigate = useNavigate();
   
+    const handleChangeRole = (e) => {
+      setRoleUser(e.target.value);
+    }
     const handleCreateUser = (e) => {
       e.preventDefault();
-      createUser(name, email, password, role)
+      createUser(name, email, password, roleUser)
         .then((response) => response.json())
         .then((obj) => {
           if (obj.code) {
@@ -59,7 +62,7 @@ export const Register = () => {
         <select 
           id="roleOption" 
           name="roleOption" 
-          onChange={(e) => setRole(e.target.value)}
+          onChange={handleChangeRole}
         >
           <option value="admin">Administração</option>
           <option value="service">Atendimento</option>

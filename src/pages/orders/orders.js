@@ -1,71 +1,26 @@
-import React from "react";
-import { HeaderService } from "../../components/Header/Header";
+import React, {useEffect, useState} from "react";
+import { getRole, accessOrders } from "../../api/api";
+import { HeaderService, HeaderAdmin } from "../../components/Header/Header";
 import styles from "./orders.module.css";
 
-// substituir pelos pedidos reais presentes na base de dados
-const teste = [{
-  "id": 1,
-  "client_name": "Pedro",
-  "user_id": 12,
-  "table": 1,
-  "status": "cozinha",
-  "processedAt": "2022-11-17",
-  "createdAt": "2022-11-17",
-  "updatedAt": "2022-11-17",
-  "Products": [
-    {
-      "id": 10,
-      "name": "suco",
-      "flavor": "laranja",
-      "complement": "string",
-      "qtd": 1
-    }
-  ]
-},
-{
-  "id": 28,
-  "client_name": "Elisa",
-  "user_id": 12,
-  "table": 10,
-  "status": "entrega",
-  "processedAt": "2022-11-17",
-  "createdAt": "2022-11-17",
-  "updatedAt": "2022-11-17",
-  "Products": [
-    {
-      "id": 10,
-      "name": "suco",
-      "flavor": "laranja",
-      "complement": "string",
-      "qtd": 1
-    }
-  ]
-},
-{
-  "id": 13,
-  "client_name": "Maria",
-  "user_id": 12,
-  "table": 15,
-  "status": "finalizado",
-  "processedAt": "2022-11-17",
-  "createdAt": "2022-11-17",
-  "updatedAt": "2022-11-17",
-  "Products": [
-    {
-      "id": 10,
-      "name": "suco",
-      "flavor": "laranja",
-      "complement": "string",
-      "qtd": 1
-    }
-  ]
-}];
-
 export const Orders = () => {
+  const [orders, setOrders] = useState([]);
+  const loadOrders = () => { 
+    accessOrders()
+    .then((response) => response.json())
+    .then((data) => {
+      setOrders(data)
+    });
+  }
 
+  useEffect(() => {
+    loadOrders();
+  },[]);
+  
     return (
       <>
-        <HeaderService/>
+        {(getRole() === "service") ? <HeaderService /> : <HeaderAdmin />}
+        <button onClick={loadOrders}>Consultar Novos Pedidos</button>
         <section className={styles.table}>
           <h2 className={styles.title}>Pronto para Entrega</h2>
           <table className={styles.delivery}>
@@ -79,7 +34,7 @@ export const Orders = () => {
               </tr>
             </thead>
             <tbody>
-              {teste.filter((item => item.status === 'entrega')).map((item) => {
+              {orders.filter((item => item.status === 'ready')).map((item) => {
                 return(
                   <tr key={item.id} className="row-table">
                     <td className={styles.deliveryColumn}>{item.id}</td>
@@ -105,7 +60,7 @@ export const Orders = () => {
                 <th className={styles.tableTitleK}>Valor</th>
                 <th className={styles.tableTitleK}>Tempo</th>
               </tr>
-              {teste.filter((item => item.status === 'cozinha')).map((item) => {
+              {orders.filter((item => item.status === 'pending')).map((item) => {
                 return(
                   <tr key={item.id} className="row-table">
                     <td className={styles.kitchenColumn}>{item.id}</td>
@@ -131,7 +86,7 @@ export const Orders = () => {
                 <th className={styles.tableTitleF}>Valor</th>
                 <th className={styles.tableTitleF}>Tempo</th>
               </tr>
-              {teste.filter((item => item.status === 'finalizado')).map((item) => {
+              {orders.filter((item => item.status === 'done')).map((item) => {
                 return(
                   <tr key={item.id} className="row-table">
                     <td className={styles.finishedColumn}>{item.id}</td>

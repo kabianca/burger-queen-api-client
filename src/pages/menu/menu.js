@@ -1,7 +1,7 @@
 import React from "react";
-import { HeaderService } from "../../components/Header/Header";
+import { HeaderAdmin, HeaderService } from "../../components/Header/Header";
 import { useEffect, useState } from "react";
-import { accessProducts } from "../../api/api";
+import { accessProducts, createOrder, getRole } from "../../api/api";
 import { filterMenu } from "../../api/main";
 import {ButtonProducts, ButtonComplements, ButtonKitchen, SelectMenu } from "../../components/Buttons/Buttons";
 import styles from "./menu.module.css";
@@ -9,16 +9,14 @@ import { AiFillMinusCircle } from "react-icons/ai";
 import { AiFillPlusCircle } from "react-icons/ai";
 
 
-
 export const Menu = () => {
   const [products, setProducts] = useState([]);
   const [type, setType] = useState('');
   const [active, setActive] = useState('');
-  const [carrinho, setCarrinho] = useState([]);
+  const [cart, setCart] = useState([]);
   const [quantify, setQuantify] = useState(1);
-  const [total, setTotal] = useState(0);
-  // const [client, setClient] = useState('');
-  // const [table, setTable] = useState('');
+  const [client, setClient] = useState('');
+  const [table, setTable] = useState('');
 
   useEffect(() => {
     accessProducts()
@@ -31,7 +29,6 @@ export const Menu = () => {
   const handleType = ((e) => {
     setType(e.target.value);
     setActive(e.target.value);
-    
   });
 
   let menu = filterMenu(products, type);
@@ -47,21 +44,15 @@ export const Menu = () => {
   
   replaceImages(products);
   
-  const price = carrinho.map((key) => key.qtd * key.price);
-  const priceReduce = price.reduce((a, b) => a + b, 0);
-
-  useEffect(() => {
-    setCarrinho(carrinho);
-    setTotal(priceReduce);
-  }, [carrinho, priceReduce])
+  const total = cart.reduce((total, produto) => total + (produto.price * produto.qtd), 0);
 
   const addProducts = (obj) => {
-    const index = carrinho.findIndex((key) => key.id === obj.id);
+    const index = cart.findIndex((key) => key.id === obj.id);
     if (index === -1) {
-      const itensOrder = [...carrinho, {...obj, qtd: 1}];
-      setCarrinho(itensOrder);
+      const itensOrder = [...cart, {...obj, qtd: 1}];
+      setCart(itensOrder);
     } else {
-      setQuantify(carrinho[index].qtd += 1);
+      setQuantify(cart[index].qtd += 1);
       console.log(quantify);
     }
     if(obj.sub_type==="hamburguer"){
@@ -84,13 +75,46 @@ export const Menu = () => {
   }
 
   const handleRemoveItem = (obj) => {
-    const removeItem = carrinho.filter((key) => key !== obj);
-    setCarrinho(removeItem);
+    const removeItem = cart.filter((key) => key !== obj);
+    setCart(removeItem);
   };
+
+  const order = {
+    client: client,
+    table: table,
+    products:
+      cart.map((item) => {
+        const cartItens = {
+          id: item.id,
+          name: item.name,
+          flavor: item.flavor,
+          complement: item.complement,
+          qtd: item.qtd,
+        };
+        return cartItens
+      }),
+  }
+  const handleCreateOrder = (e) => {
+    e.preventDefault();
+    createOrder(order)
+      .then((response) => response.json())
+          .then((obj) => {
+            if (obj.code) {
+              throw (obj.message)
+            } else {
+              return obj
+            }
+          })
+          .then((data) => {
+            console.log(data);
+            setCart([]);
+          })
+          .catch((error) => console.log(error));
+  }
 
   return (
     <div className={styles.container}>
-      <HeaderService />
+      {(getRole() === "service") ? <HeaderService /> : <HeaderAdmin />}
       <div className={styles.btnMenu}>
         <SelectMenu
           onClick={handleType}
@@ -114,13 +138,24 @@ export const Menu = () => {
         </section>
         <aside className={styles.shoppingCar}>
           <section className={styles.headerCar}>
-            <input className={styles.input} id={styles.left} placeholder="Nome Cliente" type="text" />
-            <input className={styles.input} placeholder="Mesa nº" type="text" />
+            <input
+              onChange={(e) => setClient(e.target.value)}
+              className={styles.input}
+              id={styles.left}
+              placeholder="Nome Cliente"
+              type="text"
+            />
+            <input
+              onChange={(e) => setTable(e.target.value)}
+              className={styles.input}
+              placeholder="Mesa nº"
+              type="text"
+            />
             <p className={styles.title}> Pedido</p>
             <hr/>
           </section>
           <div id={styles.draft}>
-            {carrinho.map((item) => {
+            {cart.map((item) => {
               return (
                 <section key={item.id} className={styles.item}>
                   <p id={styles.complement}>{item.complement ? "+ " + item.complement : ""}</p>
@@ -162,7 +197,8 @@ export const Menu = () => {
                 </tr>
               </tbody>
             </table>
-            <ButtonKitchen />
+            <ButtonKitchen
+              onClick={handleCreateOrder} />
           </section>
         </aside>
       </main>

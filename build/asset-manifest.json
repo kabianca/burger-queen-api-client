@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/static/css/main.d0765355.css",
+    "main.js": "/static/js/main.1e3302ad.js",
+    "static/media/burger.png": "/static/media/burger.c530d6a1e09583b325e8.png",
+    "static/media/ovo.png": "/static/media/ovo.0dbc991a078ba6fdc64c.png",
+    "static/media/queijo.png": "/static/media/queijo.7de35575c9fbbba1e18d.png",
+    "index.html": "/index.html",
+    "main.d0765355.css.map": "/static/css/main.d0765355.css.map",
+    "main.1e3302ad.js.map": "/static/js/main.1e3302ad.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d0765355.css",
+    "static/js/main.1e3302ad.js"
+  ]
+}
