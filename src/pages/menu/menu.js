@@ -78,7 +78,9 @@ export const Menu = () => {
   }
 
   function decrease (item) {
-    setQuantify(item.qtd -= 1);
+    item.qtd -= 1;
+    item.qtd === 0 ? handleRemoveItem(item) : setQuantify(item.qtd);
+    
   }
 
   const handleRemoveItem = (obj) => {
