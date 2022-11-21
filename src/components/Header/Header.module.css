@@ -27,6 +27,7 @@
     color: var(--color-white);
     font-weight: bold;
     font-family: var(--font-products);
+    cursor: pointer;
     
 }
 .item:nth-last-child(1){

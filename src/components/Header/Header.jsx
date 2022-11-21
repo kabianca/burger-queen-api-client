@@ -1,9 +1,22 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { RiLogoutBoxRLine } from "react-icons/ri";
+import { getToken, removeToken } from "../../api/api";
+import { useNavigate } from "react-router-dom";
+
+
 import styles from "./Header.module.css";
 
+
+
 export const HeaderAdmin = () => { 
+    const navigate = useNavigate();
+    const handleLogout = () => {
+        removeToken();
+        if(!getToken()){
+            navigate("/");
+        }
+    }
 
     return(
         <header className={styles.header}>
@@ -43,7 +56,7 @@ export const HeaderAdmin = () => {
                             </NavLink>
                         </li>
                     </div>
-                    <li className={styles.item}>
+                    <li className={styles.item} onClick={handleLogout}>
                         <RiLogoutBoxRLine />
                     </li>
                 </ul>
@@ -53,6 +66,13 @@ export const HeaderAdmin = () => {
 };
 
 export const HeaderKitchen = () => { 
+    const navigate = useNavigate();
+    const handleLogout = () => {
+        removeToken();
+        if(!getToken()){
+            navigate("/");
+        }
+    }
     return(
             <header className={styles.header}>
                 <nav>
@@ -67,7 +87,7 @@ export const HeaderKitchen = () => {
                                 </NavLink>
                             </li>
                         </div>
-                        <li className={styles.item}>
+                        <li className={styles.item} onClick={handleLogout}>
                             <RiLogoutBoxRLine />
                         </li>
                     </ul>
@@ -77,6 +97,13 @@ export const HeaderKitchen = () => {
 };
 
 export const HeaderService = () => { 
+    const navigate = useNavigate();
+    const handleLogout = () => {
+        removeToken();
+        if(!getToken()){
+            navigate("/");
+        }
+    }
     return(
         <header className={styles.header}>
             <nav>
@@ -99,7 +126,7 @@ export const HeaderService = () => {
                             </NavLink>
                         </li>
                     </div>
-                    <li className={styles.item} >
+                    <li className={styles.item} onClick={handleLogout} >
                         <RiLogoutBoxRLine/>
                     </li>
                 </ul>
