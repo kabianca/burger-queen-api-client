@@ -45,7 +45,7 @@ export const ButtonComplements = ( {children, onClick} ) => {
         <section className={styles.card} onClick={onClick} data-id={children.id}>
             <div className={styles.title}>
                 <img src={children.complement ? foto : nullComplement}alt="Icone do menu" className={styles.image}></img>
-                <h1 className={styles.name}>{children.complement ? children.complement : "Sem complemento"}</h1>
+                <h1 className={styles.name}>{children.complement ? "Adicionar " + children.complement : "Sem adicional"}</h1>
             </div>
             <p className={styles.price}>{children.complement ? "R$ 1" : ""}</p>
         </section>
