@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import { getRole, accessOrders } from "../../api/api";
 import { HeaderService, HeaderAdmin } from "../../components/Header/Header";
 import styles from "./orders.module.css";
+import { Button } from "../../components/Buttons/Button";
 
 export const Orders = () => {
   const [orders, setOrders] = useState([]);
@@ -20,7 +21,7 @@ export const Orders = () => {
     return (
       <>
         {(getRole() === "service") ? <HeaderService /> : <HeaderAdmin />}
-        <button onClick={loadOrders}>Consultar Novos Pedidos</button>
+        <Button onClick={loadOrders} className="kitchen" text="Consultar Novos Pedidos"/>
         <section className={styles.table}>
           <h2 className={styles.title}>Pronto para Entrega</h2>
           <table className={styles.delivery}>

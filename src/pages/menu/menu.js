@@ -2,8 +2,8 @@ import React from "react";
 import { HeaderAdmin, HeaderService } from "../../components/Header/Header";
 import { useEffect, useState } from "react";
 import { accessProducts, createOrder, getRole } from "../../api/api";
-import { filterMenu } from "../../api/main";
-import {ButtonProducts, ButtonComplements, ButtonKitchen, SelectMenu } from "../../components/Buttons/Buttons";
+import {ButtonProducts, ButtonComplements } from "../../components/Buttons/Buttons";
+import { Button } from "../../components/Buttons/Button";
 import styles from "./menu.module.css";
 import { AiFillMinusCircle } from "react-icons/ai";
 import { AiFillPlusCircle } from "react-icons/ai";
@@ -30,6 +30,12 @@ export const Menu = () => {
     setType(e.target.value);
     setActive(e.target.value);
   });
+
+  function filterMenu(products, search) {
+    return search === "breakfast" || search === "all-day" ?
+    products.filter((product) => product.type === search && product.complement === null) :
+    products.filter((product) => product.name=== search)
+  };
 
   let menu = filterMenu(products, type);
   
@@ -116,18 +122,18 @@ export const Menu = () => {
     <div className={styles.container}>
       {(getRole() === "service") ? <HeaderService /> : <HeaderAdmin />}
       <div className={styles.btnMenu}>
-        <SelectMenu
+        <Button
           onClick={handleType}
-          className={(active === 'breakfast') ? styles.btn_select_active : styles.btn_select}
-          value={"breakfast"}>
-          Café da Manhã
-        </SelectMenu>
-        <SelectMenu
+          className={(active === 'breakfast') ? "btn_select_active" : "btn_select"}
+          value="breakfast"
+          text="Café da Manhã"
+        />
+        <Button
           onClick={handleType}
-          className={(active === "all-day") ? styles.btn_select_active : styles.btn_select}
-          value={"all-day"}>
-          Principal
-        </SelectMenu>
+          className={(active === "all-day") ? "btn_select_active" : "btn_select"}
+          value="all-day"
+          text="Principal"
+        />
       </div>
       <main className={styles.menuShopping}>
         <section className={styles.menu}>
@@ -197,8 +203,7 @@ export const Menu = () => {
                 </tr>
               </tbody>
             </table>
-            <ButtonKitchen
-              onClick={handleCreateOrder} />
+            <Button onClick={handleCreateOrder} className="kitchen" text="Enviar para cozinha"/>
           </section>
         </aside>
       </main>

@@ -6,7 +6,6 @@ export const setTokenRole = (token, role) => {
 export const getToken = () => localStorage.getItem('token');
 export const getRole = () => localStorage.getItem('role');
 
-// Logout
 export const removeToken = () => localStorage.removeItem('token');
 
 export const createUser = (name, email, password, role) => {

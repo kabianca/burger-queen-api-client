@@ -4,8 +4,8 @@ import logo from "../../assets/burger.png";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { login, setTokenRole } from "../../api/api";
-import {ButtonSignin} from "../../components/Buttons/Buttons";
 import InputForm from "../../components/InputForm/InputForm";
+import { Button } from "../../components/Buttons/Button";
 
 export const Login = () => {
   const [email, setEmail] = useState("");
@@ -54,9 +54,7 @@ export const Login = () => {
           placeholder="SENHA" 
           onChange={(e) => setPassword(e.target.value)}
         />
-        <ButtonSignin onClick={handleLogin}>
-          ENTRAR
-        </ButtonSignin>
+        <Button onClick={handleLogin} className="signin" text="ENTRAR"/>
         <p id="errorMsg">{error}</p>
         <p id="text-home">Não possui conta? <Link to="/register" className="link-home">Cadastre-se</Link></p>
       </form>

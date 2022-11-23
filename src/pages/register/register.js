@@ -4,7 +4,7 @@ import React from "react";
 import "./register.css";
 import logoRegister from "../../assets/burger.png";
 import { createUser, setTokenRole } from "../../api/api";
-import {ButtonSignin} from "../../components/Buttons/Buttons";
+import { Button } from "../../components/Buttons/Button";
 import InputForm from "../../components/InputForm/InputForm";
 
 export const Register = () => {
@@ -74,9 +74,7 @@ export const Register = () => {
         >
           <option value="chapaBurger">Chapa Burger</option>
         </select>
-        <ButtonSignin onClick={handleCreateUser}>
-          CADASTRAR
-        </ButtonSignin>
+        <Button onClick={handleCreateUser} className="signin" text="CADASTRAR" />
         <p id="errorMsg">{error}</p>
         <p id="text-home">Já possui conta? <Link to="/" className="link-home"> Entrar </Link></p>
       </form>

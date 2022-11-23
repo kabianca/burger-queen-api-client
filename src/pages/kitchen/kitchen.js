@@ -1,21 +1,22 @@
-import React, { useState } from "react";
-import { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { getRole, accessOrders } from "../../api/api";
-// import { CardKitchen } from "../../components/cardKitchen/Card";
 import {HeaderKitchen, HeaderAdmin} from "../../components/Header/Header";
 
 export const Kitchen = () => {
   const [orders, setOrders] = useState([]);
 
-  useEffect(() => {
+  const loadOrders = () => { 
     accessOrders()
-      .then((response) => response.json())
-      .then((data) => {
-        setOrders(data)
-      });
-  }, [setOrders]);
+    .then((response) => response.json())
+    .then((data) => {
+      setOrders(data)
+    });
+  }
 
-  console.log(orders)
+  useEffect(() => {
+    loadOrders();
+  },[]);
+
   return (
     <section className="App">
       {(getRole() === "kitchen") ? <HeaderKitchen /> : <HeaderAdmin />}
