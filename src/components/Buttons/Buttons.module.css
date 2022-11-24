@@ -1,27 +1,3 @@
-.btn_kitchen {
-    background-color: var(--color-yellow-service);
-    width: 100%;
-    height: 3.5vh;
-    border-radius: 5px;
-    border: none;
-    cursor: pointer;
-    font-size: 1rem;
-    font-weight: 600;
-    box-shadow: 0 1px 5px  var(--color-button-shadow);
-}
-
-.btn_signin {
-    background-color: var(--color-yellow-service);
-    width: 50%;
-    height: 4.5vh;
-    border-radius: 5px;
-    border: none;
-    cursor: pointer;
-    font-size: 1.2rem;
-    font-weight: 600;
-    box-shadow: 0 1px 5px  var(--color-button-shadow);
-}
-
 /*          BOTÕES DOS PRODUTOS              */
 
 .card{

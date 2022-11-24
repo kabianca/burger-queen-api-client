@@ -1,6 +1,5 @@
 import React from "react";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
-import { Admin } from "./pages/admin/admin";
 import { Login } from "./pages/login/login";
 import { Register } from "./pages/register/register";
 import { Menu } from "./pages/menu/menu";
@@ -13,7 +12,6 @@ const App = () => (
     <Routes>
       <Route exact path="/" element={<Login />} />
       <Route path="/register" element={<Register />} />
-      <Route path="/admin" element={<Admin />} />
       <Route path="/menu" element={<Menu />} />
       <Route path="/orders" element={<Orders />} />
       <Route path="/kitchen" element={<Kitchen />} />
