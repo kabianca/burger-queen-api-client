@@ -18,7 +18,7 @@ export const Kitchen = () => {
   },[]);
 
   return (
-    <section className="App">
+    <main className="container">
       {(getRole() === "kitchen") ? <HeaderKitchen /> : <HeaderAdmin />}
       <h1>Cozinha em Construção</h1>
       {orders.filter((item => item.status === 'pending')).map((item) =>
@@ -28,6 +28,6 @@ export const Kitchen = () => {
           {item.Products.map((product) => <p>{product.qtd}: {product.name}</p>)}
           <button>Finalizar</button>
         </article>)}
-    </section>
+    </main>
   );
   };

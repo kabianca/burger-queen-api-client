@@ -6,8 +6,8 @@
     padding: 0;
     box-sizing: border-box;
     font-family: var(--font-products);
-    background: var(--color-background);
 }
+
 :root {
     --color-white: #FFFFFF;
     --color-black: #000000;
@@ -22,6 +22,7 @@
     --color-button-shadow: black;
     --font-products: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
+
 .app{
     background: var(--color-background);
 }

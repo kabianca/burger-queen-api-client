@@ -19,7 +19,7 @@ button {
     font-size: 1.2rem;
 }
 
-.btn_select{
+.btnMenu{
     background: var(--color-gray-box);
     border-radius: 10px;
     padding: 1rem;
@@ -29,7 +29,7 @@ button {
     font-family: var(--font-products);
 }
 
-.btn_select_active {
+.btnMenuActive {
     background-color: var(--color-yellow-service);
     border-radius: 10px;
     padding: 1rem;

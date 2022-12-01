@@ -19,7 +19,7 @@ export const Orders = () => {
   },[]);
   
     return (
-      <>
+      <main className={styles.container}>
         {(getRole() === "service") ? <HeaderService /> : <HeaderAdmin />}
         <Button onClick={loadOrders} className="kitchen" text="Consultar Novos Pedidos"/>
         <section className={styles.table}>
@@ -101,6 +101,6 @@ export const Orders = () => {
             </tbody>
           </table>
         </section>
-      </>
+      </main>
     );
   };
