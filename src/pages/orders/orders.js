@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import { getRole, accessOrders } from "../../api/api";
 import { HeaderService, HeaderAdmin } from "../../components/Header/Header";
-import styles from "./orders.module.css";
+import "./orders.css";
 import { Button } from "../../components/Buttons/Button";
 
 export const Orders = () => {
@@ -19,28 +19,28 @@ export const Orders = () => {
   },[]);
   
     return (
-      <main className={styles.container}>
+      <main className="container">
         {(getRole() === "service") ? <HeaderService /> : <HeaderAdmin />}
-        <Button onClick={loadOrders} className={styles.reload} text="Consultar Novos Pedidos"/> 
-        <section className={styles.table}>
-          <h2 className={styles.title}>Pronto para Entrega</h2>
-          <table className={styles.delivery}>
+        <Button onClick={loadOrders} className="reload" text="Consultar Novos Pedidos"/> 
+        <section className="table">
+          <h2 className="title">Pronto para Entrega</h2>
+          <table className="delivery">
             <thead>
               <tr className="row-table">
-                <th className={styles.tableTitleD}>Id</th>
-                <th className={styles.tableTitleD}>Cliente</th>
-                <th className={styles.tableTitleD}>Mesa</th>
-                <th className={styles.tableTitleD}></th>
+                <th className="tableTitleD">Id</th>
+                <th className="tableTitleD">Cliente</th>
+                <th className="tableTitleD">Mesa</th>
+                <th className="tableTitleD"></th>
               </tr>
             </thead>
             <tbody>
               {orders.filter((item => item.status === 'ready')).map((item) => {
                 return(
                   <tr key={item.id} className="row-table">
-                    <td className={styles.deliveryColumn}>{item.id}</td>
-                    <td className={styles.deliveryColumn}>{item.client_name}</td>
-                    <td className={styles.deliveryColumn}>{item.table}</td>
-                    <td className={styles.deliveryColumn}><input type="submit" value="OK" className={styles.input} /></td>
+                    <td className="deliveryColumn">{item.id}</td>
+                    <td className="deliveryColumn">{item.client_name}</td>
+                    <td className="deliveryColumn">{item.table}</td>
+                    <td className="deliveryColumn"><input type="submit" value="OK" className="input" /></td>
                   </tr>
                 )
               })}
@@ -48,23 +48,23 @@ export const Orders = () => {
           </table>
         </section>
 
-        <section className={styles.table}>
-          <h2 className={styles.title}>Na Cozinha</h2>
-          <table className={styles.kitchen}>
+        <section className="table">
+          <h2 className="title">Na Cozinha</h2>
+          <table className="kitchen">
             <tbody>
               <tr className="row-table">
-                <th className={styles.tableTitleK}>Pedido</th>
-                <th className={styles.tableTitleK}>Cliente</th>
-                <th className={styles.tableTitleK}>Mesa</th>
-                <th className={styles.tableTitleK}>Tempo</th>
+                <th className="tableTitleK">Pedido</th>
+                <th className="tableTitleK">Cliente</th>
+                <th className="tableTitleK">Mesa</th>
+                <th className="tableTitleK">Tempo</th>
               </tr>
               {orders.filter((item => item.status === 'pending')).map((item) => {
                 return(
                   <tr key={item.id} className="row-table">
-                    <td className={styles.kitchenColumn}>{item.id}</td>
-                    <td className={styles.kitchenColumn}>{item.client_name}</td>
-                    <td className={styles.kitchenColumn}>{item.table}</td>
-                    <td className={styles.kitchenColumn}>{item.processedAt}</td>
+                    <td className="kitchenColumn">{item.id}</td>
+                    <td className="kitchenColumn">{item.client_name}</td>
+                    <td className="kitchenColumn">{item.table}</td>
+                    <td className="kitchenColumn">{item.processedAt}</td>
                   </tr>
                 )
               })}
@@ -72,23 +72,23 @@ export const Orders = () => {
           </table>
         </section>
         
-        <section className={styles.table}>
-          <h2 className={styles.title}>Pedidos Finalizados</h2>
-          <table className={styles.finished}>
+        <section className="table">
+          <h2 className="title">Pedidos Finalizados</h2>
+          <table className="finished">
             <tbody>
               <tr className="row-table">
-                <th className={styles.tableTitleF}>Pedido</th>
-                <th className={styles.tableTitleF}>Cliente</th>
-                <th className={styles.tableTitleF}>Mesa</th>
-                <th className={styles.tableTitleF}>Tempo</th>
+                <th className="tableTitleF">Pedido</th>
+                <th className="tableTitleF">Cliente</th>
+                <th className="tableTitleF">Mesa</th>
+                <th className="tableTitleF">Tempo</th>
               </tr>
               {orders.filter((item => item.status === 'done')).map((item) => {
                 return(
                   <tr key={item.id} className="row-table">
-                    <td className={styles.finishedColumn}>{item.id}</td>
-                    <td className={styles.finishedColumn}>{item.client_name}</td>
-                    <td className={styles.finishedColumn}>{item.table}</td>
-                    <td className={styles.finishedColumn}>{item.processedAt}</td>
+                    <td className="finishedColumn">{item.id}</td>
+                    <td className="finishedColumn">{item.client_name}</td>
+                    <td className="finishedColumn">{item.table}</td>
+                    <td className="finishedColumn">{item.processedAt}</td>
                   </tr>
                 )
               })}

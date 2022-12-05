@@ -181,12 +181,13 @@ export const Menu = () => {
               )
             })}
           </section>
+          <hr/>
           <section>
             <div className="sumTotal">
               <h2 className="total">Total</h2>
               <p className="total">R$ {total}</p>
             </div>
-            <Button onClick={handleCreateOrder} className="kitchen" text="Enviar para cozinha"/>
+            <Button onClick={handleCreateOrder} className="kitchenButton" text="Enviar para cozinha"/>
           </section>
         </aside>
       </main>
