@@ -25,6 +25,12 @@
     height: 30vh;
 }
 
+.signin {
+    width: 50%;
+    height: 4.5vh;
+    font-size: 1.2rem;
+}
+
 footer {
     background-color: var(--color-gray);
     height: 10vh;

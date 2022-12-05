@@ -1,3 +1,4 @@
+import React from "react";
 import styles from "./Buttons.module.css";
 import ovo from "../../assets/ovo.png";
 import queijo from "../../assets/queijo.png";

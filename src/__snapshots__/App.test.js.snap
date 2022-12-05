@@ -2,48 +2,54 @@
 
 exports[`should take a snapshot 1`] = `
 <DocumentFragment>
-  <figure
-    id="logo-login"
+  <section
+    class="container"
   >
-    <img
-      alt="logo-hamburger"
-      id="logo-img-login"
-      src="burger.png"
-    />
-  </figure>
-  <form
-    id="form-login"
-  >
-    <input
-      class="inputForm"
-      placeholder="E-MAIL"
-      type="email"
-    />
-    <input
-      class="inputForm"
-      placeholder="SENHA"
-      type="password"
-    />
-    <button
-      class="btn_signin"
-      type="button"
+    <figure
+      id="logo-login"
     >
-      ENTRAR
-    </button>
-    <p
-      id="errorMsg"
-    />
-    <p
-      id="text-home"
+      <img
+        alt="logo-hamburger"
+        id="logo-img-login"
+        src="burger.png"
+      />
+    </figure>
+    <form
+      id="form-login"
     >
-      Não possui conta? 
-      <a
-        class="link-home"
-        href="/register"
+      <input
+        class="inputForm"
+        placeholder="E-MAIL"
+        type="email"
+      />
+      <input
+        class="inputForm"
+        placeholder="SENHA"
+        type="password"
+      />
+      <button
+        class="signin"
+        type="button"
       >
-        Cadastre-se
-      </a>
-    </p>
-  </form>
+        ENTRAR
+      </button>
+    </form>
+    <footer>
+      <p
+        class="errorMsg"
+      />
+      <p
+        class="text-home"
+      >
+        Não possui conta? 
+        <a
+          class="link-home"
+          href="/register"
+        >
+          Cadastre-se
+        </a>
+      </p>
+    </footer>
+  </section>
 </DocumentFragment>
 `;

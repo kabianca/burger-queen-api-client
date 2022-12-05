@@ -22,10 +22,10 @@ export const Kitchen = () => {
       {(getRole() === "kitchen") ? <HeaderKitchen /> : <HeaderAdmin />}
       <h1>Cozinha em Construção</h1>
       {orders.filter((item => item.status === 'pending')).map((item) =>
-        <article>
+        <article key={item.id}>
           <p>{item.id}</p>
           <p>contador</p>
-          {item.Products.map((product) => <p>{product.qtd}: {product.name}</p>)}
+          <p>{item.qtd}: {item.name}</p>
           <button>Finalizar</button>
         </article>)}
     </main>

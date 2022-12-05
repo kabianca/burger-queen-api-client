@@ -1,4 +1,4 @@
-import styles from "./button.modules.css";
+import React from "react";
 
 export const Button = ( props ) => {
     return (

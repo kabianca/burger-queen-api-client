@@ -4,9 +4,9 @@ import { accessProducts, createOrder, getRole } from "../../api/api";
 import { ButtonProducts } from "../../components/Buttons/ButtonProducts";
 import { ButtonComplements } from "../../components/Buttons/ButtonComplements";
 import { Button } from "../../components/Buttons/Button";
-import "./menu.css";
 import { AiFillMinusCircle } from "react-icons/ai";
 import { AiFillPlusCircle } from "react-icons/ai";
+import "./menu.css";
 
 export const Menu = () => {
   const [products, setProducts] = useState([]);
@@ -34,7 +34,7 @@ export const Menu = () => {
     return search === "breakfast" || search === "all-day" ?
     products.filter((product) => product.type === search && product.complement === null) :
     products.filter((product) => product.name=== search)
-  };
+  }
 
   let filterProducts = filterMenu(products, type);
   
@@ -161,7 +161,7 @@ export const Menu = () => {
             {cart.map((item) => {
               return (
                 <article key={item.id} className="itemCart">
-                  <img src={item.image} alt="Icone do produto" className="image"></img>
+                  <img src={item.image} alt={`Ilustração de ${item.name}`} className="image"></img>
                   <h2 className="itemName">{item.name}</h2>
                   <p className="itemPrice">R$ {item.price}</p>
                   <div className="editQuantify">

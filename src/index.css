@@ -27,6 +27,15 @@
     background: var(--color-background);
 }
 
+button {
+    background-color: var(--color-yellow-service);
+    box-shadow: 0 1px 5px  var(--color-button-shadow);
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+}
+
 @media screen and (min-width: 1200px) {
     body, #form-login, #form-register {
         min-width: 768px;
