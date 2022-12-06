@@ -1,6 +1,14 @@
+import React from 'react';
 import { login } from '../../api/api';
-import {ButtonSignin} from '../../components/Buttons/Buttons';
+import { Button } from '../../components/Buttons/Button';
 import {render, screen, fireEvent} from '@testing-library/react';
+import {
+  expect,
+  describe,
+  test,
+  jest,
+  it,
+} from '@jest/globals';
 
 describe('Login function', () => {
   it('should be a function', () => {
@@ -10,7 +18,7 @@ describe('Login function', () => {
 
 test('calls login function when clicked', () => {
   const handleClick = jest.fn()
-  render(<ButtonSignin onClick={handleClick}>ENTRAR</ButtonSignin>)
-  fireEvent.click(screen.getByText(/entrar/i))
+  render(<Button onClick={handleClick}/>)
+  fireEvent.click(screen.getByRole('button'))
   expect(handleClick).toHaveBeenCalledTimes(1)
 });

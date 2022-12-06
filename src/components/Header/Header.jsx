@@ -3,11 +3,7 @@ import { NavLink } from "react-router-dom";
 import { RiLogoutBoxRLine } from "react-icons/ri";
 import { getToken, removeToken } from "../../api/api";
 import { useNavigate } from "react-router-dom";
-
-
 import styles from "./Header.module.css";
-
-
 
 export const HeaderAdmin = () => { 
     const navigate = useNavigate();

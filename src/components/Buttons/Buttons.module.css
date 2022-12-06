@@ -1,18 +1,15 @@
-/*          BOTÕES DOS PRODUTOS              */
-
 .card{
-    height: 8rem;
-    width: 48.9%;
+    background: var(--color-gray-box);
     display: flex;
     flex-direction: column;
-    background: var(--color-gray-box);
-    border-radius: 10px;
     justify-content: space-between;
+    width: 48.9%;
+    height: 8rem;
     padding: .3rem;
-    font-family: var(--font-products);
-    box-shadow: 0 1px 5px  var(--color-button-shadow);
+    border-radius: 10px;
     cursor: pointer;
-    
+    box-shadow: 0 1px 5px  var(--color-button-shadow);
+    font-family: var(--font-products);
 }
 
 .title, .image, .name, .price {
@@ -21,37 +18,25 @@
 
 .title{
     display: flex;
-    /* border: 2px solid red; */
     height: 80%;
-    background: var(--color-gray-box);
-
 }
 
 .image {
     width: 9vw;
     height:fit-content;
-    background: var(--color-gray-box);
-
-    /* border: 2px solid yellow; */
 }
 
 .name{
-    text-align: center;
-    color: var(--color-white);
-    font-size: .95rem;
     margin: auto .2rem;
-    background: var(--color-gray-box);
-
-    /* border: 2px solid green; */
+    text-align: center;
+    font-size: .95rem;
+    color: var(--color-white);
 }
 
 .price{
+    height: 20%;
     padding: .15rem 0 .15rem 0;
     text-align: center;
-    color: var( --color-yellow-service);
-    height: 20%;
     font-weight: bold;
-    background: var(--color-gray-box);
-
-    /* border: 2px solid blue; */
+    color: var( --color-yellow-service);
 }
