@@ -81,3 +81,14 @@ export const accessOrders = () => {
       },
   })
 }
+
+export const updateOrders = (orderId, status) => {
+  return fetch(`https://lab-api-bq.onrender.com/orders/${orderId}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': getToken(),
+      },
+      body: JSON.stringify({ status }),
+  })
+}

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { getRole, accessOrders } from "../../api/api";
+import { getRole, accessOrders, updateOrders } from "../../api/api";
 import {HeaderKitchen, HeaderAdmin} from "../../components/Header/Header";
 
 export const Kitchen = () => {
@@ -12,6 +12,15 @@ export const Kitchen = () => {
       setOrders(data)
     });
   }
+
+  const handleUpdateOrder = (e) => {
+    e.preventDefault();
+    const idOrder = e.currentTarget.dataset.id
+    updateOrders(idOrder, 'ready')
+  }
+
+  // let teste = orders[0].createdAt;
+  console.log(orders)
 
   useEffect(() => {
     loadOrders();
@@ -26,7 +35,7 @@ export const Kitchen = () => {
           <p>{item.id}</p>
           <p>contador</p>
           <p>{item.qtd}: {item.name}</p>
-          <button>Finalizar</button>
+          <button data-id={item.id} data-status={item.status} onClick={handleUpdateOrder}>Finalizar</button>
         </article>)}
     </main>
   );
