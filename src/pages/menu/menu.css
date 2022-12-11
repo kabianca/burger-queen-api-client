@@ -112,6 +112,7 @@
     font-weight: bold;
     color: var(--color-green);
 }
+
 .itemPrice {
     grid-row-end: span 3; /*ocupa a coluna inteira*/
     align-self: center;

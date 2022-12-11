@@ -1,7 +1,7 @@
 #logo-login {
     background: var(--color-gray) url("../../assets/background-login.png") no-repeat right 75% bottom 6%;
     width: 100%;
-    height: 60vh;
+    height: 60%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -21,8 +21,8 @@
     justify-content: center;
     align-items: center;
     row-gap: 2.5vh;
-    width: 100vw;
-    height: 30vh;
+    width: 100%;
+    height: 30%;
 }
 
 .signin {
@@ -49,13 +49,18 @@ footer {
     text-shadow: 2px 2px 5px var(--color-black);
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 815px) {
     #logo-login {
         background-size: 100%;
+        background-position: top;
         width: 100%;
+        min-height: 60%;
     }
     #logo-img-login {
         height: 45vh;
         width: auto;
+    }
+    .signin {
+        width: 60%;
     }
 }

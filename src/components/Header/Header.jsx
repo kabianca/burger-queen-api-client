@@ -1,20 +1,19 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
-import { RiLogoutBoxRLine } from "react-icons/ri";
-import { getToken, removeToken } from "../../api/api";
-import { useNavigate } from "react-router-dom";
-import styles from "./Header.module.css";
+import React from 'react';
+import { NavLink, useNavigate } from 'react-router-dom';
+import { RiLogoutBoxRLine } from 'react-icons/ri';
+import { getToken, removeToken } from '../../api/api';
+import styles from './Header.module.css';
 
-export const HeaderAdmin = () => { 
-    const navigate = useNavigate();
-    const handleLogout = () => {
-        removeToken();
-        if(!getToken()){
-            navigate("/");
-        }
+export const HeaderAdmin = () => {
+  const navigate = useNavigate();
+  const handleLogout = () => {
+    removeToken();
+    if (!getToken()) {
+      navigate('/');
     }
+  };
 
-    return(
+  return (
         <header className={styles.header}>
             <nav>
                 <ul className={styles.nav}>
@@ -22,7 +21,7 @@ export const HeaderAdmin = () => {
                         <li className={styles.item}>
                             <NavLink
                                 className={styles.link}
-                                style={({ isActive }) => ({color: isActive ? '#EBCE39' : '#FFF'})}
+                                style={({ isActive }) => ({ color: isActive ? '#EBCE39' : '#FFF' })}
                                 to="/admin">
                                     Administração
                             </NavLink>
@@ -30,7 +29,7 @@ export const HeaderAdmin = () => {
                         <li className={styles.item}>
                             <NavLink
                                 className={styles.link}
-                                style={({ isActive }) => ({color: isActive ? '#EBCE39' : '#FFF'})}
+                                style={({ isActive }) => ({ color: isActive ? '#EBCE39' : '#FFF' })}
                                 to="/menu">
                                     Cardápio
                             </NavLink>
@@ -38,7 +37,7 @@ export const HeaderAdmin = () => {
                         <li className={styles.item}>
                             <NavLink
                                 className={styles.link}
-                                style={({ isActive }) => ({color: isActive ? '#EBCE39' : '#FFF'})}
+                                style={({ isActive }) => ({ color: isActive ? '#EBCE39' : '#FFF' })}
                                 to="/orders">
                                     Pedidos
                             </NavLink>
@@ -46,7 +45,7 @@ export const HeaderAdmin = () => {
                         <li className={styles.item}>
                             <NavLink
                                 className={styles.link}
-                                style={({ isActive }) => ({color: isActive ? '#EBCE39' : '#FFF'})}
+                                style={({ isActive }) => ({ color: isActive ? '#EBCE39' : '#FFF' })}
                                 to="/kitchen">
                                     Cozinha
                             </NavLink>
@@ -58,18 +57,18 @@ export const HeaderAdmin = () => {
                 </ul>
             </nav>
         </header>
-    )
+  );
 };
 
-export const HeaderKitchen = () => { 
-    const navigate = useNavigate();
-    const handleLogout = () => {
-        removeToken();
-        if(!getToken()){
-            navigate("/");
-        }
+export const HeaderKitchen = () => {
+  const navigate = useNavigate();
+  const handleLogout = () => {
+    removeToken();
+    if (!getToken()) {
+      navigate('/');
     }
-    return(
+  };
+  return (
             <header className={styles.header}>
                 <nav>
                     <ul className={styles.nav}>
@@ -77,7 +76,7 @@ export const HeaderKitchen = () => {
                             <li className={styles.item}>
                                 <NavLink
                                     className={styles.link}
-                                    style={({ isActive }) => ({color: isActive ? '#EBCE39' : '#FFF'})}
+                                    style={({ isActive }) => ({ color: isActive ? '#EBCE39' : '#FFF' })}
                                     to="/kitchen">
                                         Cozinha
                                 </NavLink>
@@ -89,18 +88,18 @@ export const HeaderKitchen = () => {
                     </ul>
                 </nav>
             </header>
-    )
+  );
 };
 
-export const HeaderService = () => { 
-    const navigate = useNavigate();
-    const handleLogout = () => {
-        removeToken();
-        if(!getToken()){
-            navigate("/");
-        }
+export const HeaderService = () => {
+  const navigate = useNavigate();
+  const handleLogout = () => {
+    removeToken();
+    if (!getToken()) {
+      navigate('/');
     }
-    return(
+  };
+  return (
         <header className={styles.header}>
             <nav>
                 <ul className={styles.nav}>
@@ -108,7 +107,7 @@ export const HeaderService = () => {
                         <li className={styles.item}>
                             <NavLink
                                 className={styles.link}
-                                style={({ isActive }) => ({color: isActive ? '#EBCE39' : '#FFF'})}
+                                style={({ isActive }) => ({ color: isActive ? '#EBCE39' : '#FFF' })}
                                 to="/menu">
                                     Cardápio
                             </NavLink>
@@ -116,7 +115,7 @@ export const HeaderService = () => {
                         <li className={styles.item}>
                             <NavLink
                                 className={styles.link}
-                                style={({ isActive }) => ({color: isActive ? '#EBCE39' : '#FFF'})}
+                                style={({ isActive }) => ({ color: isActive ? '#EBCE39' : '#FFF' })}
                                 to="/orders">
                                     Pedidos
                             </NavLink>
@@ -128,5 +127,5 @@ export const HeaderService = () => {
                 </ul>
             </nav>
         </header>
-    )
+  );
 };

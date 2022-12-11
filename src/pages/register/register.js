@@ -1,41 +1,40 @@
-import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import "./register.css";
-import logoRegister from "../../assets/burger.png";
-import { createUser, setTokenRole } from "../../api/api";
-import { Button } from "../../components/Buttons/Button";
-import InputForm from "../../components/InputForm/InputForm";
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import './register.css';
+import logoRegister from '../../assets/burger.png';
+import { createUser, setTokenRole } from '../../api/api';
+import { Button } from '../../components/Buttons/Button.jsx';
+import InputForm from '../../components/InputForm/InputForm.jsx';
 
 export const Register = () => {
-    const [name, setName] = useState("");
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [roleUser, setRoleUser] = useState("");
-    const [error, setError] = useState("");
-    const navigate = useNavigate();
-  
-    const handleChangeRole = (e) => {
-      setRoleUser(e.target.value);
-    }
-    const handleCreateUser = (e) => {
-      e.preventDefault();
-      createUser(name, email, password, roleUser)
-        .then((response) => response.json())
-        .then((obj) => {
-          if (obj.code) {
-            throw (obj.message)
-          } else {
-            return obj
-          }
-        })
-        .then((data) => {
-          if(!data) return;
-          setTokenRole(data.token, data.role);
-          console.log(data);
-          navigate("/");
-        })
-        .catch((error) => setError(error));
-    };
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [roleUser, setRoleUser] = useState('');
+  const [error, setError] = useState('');
+  const navigate = useNavigate();
+
+  const handleChangeRole = (e) => {
+    setRoleUser(e.target.value);
+  };
+  const handleCreateUser = (e) => {
+    e.preventDefault();
+    createUser(name, email, password, roleUser)
+      .then((response) => response.json())
+      .then((obj) => {
+        if (obj.code) {
+          throw (obj.message);
+        } else {
+          return obj;
+        }
+      })
+      .then((data) => {
+        if (!data) return;
+        setTokenRole(data.token, data.role);
+        navigate('/');
+      })
+      .catch((error) => setError(error));
+  };
 
   return (
     <>
@@ -47,7 +46,7 @@ export const Register = () => {
           <InputForm
             type="text"
             placeholder="NOME"
-            onChange={(e) => setName(e.target.value)} 
+            onChange={(e) => setName(e.target.value)}
           />
           <InputForm
             type="email"
@@ -59,9 +58,9 @@ export const Register = () => {
             placeholder="SENHA"
             onChange={(e) => setPassword(e.target.value)}
           />
-          <select 
-            id="roleOption" 
-            name="roleOption" 
+          <select
+            id="roleOption"
+            name="roleOption"
             onChange={handleChangeRole}
           >
             <option value="admin">Administração</option>
