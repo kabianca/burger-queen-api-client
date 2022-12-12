@@ -1,0 +1,50 @@
+.kitchenTitle {
+    color: var(--color-white);
+    margin-top: 2vh;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+}
+
+.orderCard {
+    background-color: var(--color-yellow-kitchen);
+    width: 40vw;
+    height: 35vh;
+    margin: 5vh 5vw;
+    padding: 2vh 2vw;
+    border-radius: 5px;
+    font-size: 1.1rem;
+}
+
+.gridOneLine {
+    grid-column-start: span 2;
+}
+
+.orderProducts {
+    padding: 2vh 2vw;
+}
+
+.orderInfo {
+    font-weight: 600;
+    text-align: left;
+}
+
+.btnDone {
+    background-color: var(--color-gray);
+    padding: 1vh 1vw;
+    font-size: 1.3rem;
+}
+
+@media screen and (min-width: 1200px) {
+    .container {
+        width: 813px;
+    }
+    .orderCard {
+       width: 90%;
+       margin: 5%;
+       height: 90%;
+    }
+}

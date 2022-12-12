@@ -1,42 +1,56 @@
-import React, { useState, useEffect } from "react";
-import { getRole, accessOrders, updateOrders } from "../../api/api";
-import {HeaderKitchen, HeaderAdmin} from "../../components/Header/Header";
+import React, { useState, useEffect } from 'react';
+import { getRole, accessOrders, updateOrders } from '../../api/api';
+import { HeaderKitchen, HeaderAdmin } from '../../components/Header/Header.jsx';
+import './kitchen.css';
 
 export const Kitchen = () => {
   const [orders, setOrders] = useState([]);
 
-  const loadOrders = () => { 
+  const loadOrders = () => {
     accessOrders()
-    .then((response) => response.json())
-    .then((data) => {
-      setOrders(data)
-    });
-  }
+      .then((response) => response.json())
+      .then((data) => {
+        setOrders(data);
+      });
+  };
 
   const handleUpdateOrder = (e) => {
     e.preventDefault();
-    const idOrder = e.currentTarget.dataset.id
-    updateOrders(idOrder, 'ready')
-  }
-
-  // let teste = orders[0].createdAt;
-  console.log(orders)
+    const idOrder = e.currentTarget.dataset.id;
+    updateOrders(idOrder, 'ready');
+  };
 
   useEffect(() => {
     loadOrders();
-  },[]);
+  }, []);
+
+  function dateTransform(orders) {
+    orders.forEach((order) => {
+      const date = new Date(order.createdAt);
+      const newDate = date.toLocaleString();
+      order.createdAt = newDate;
+    });
+  }
+
+  dateTransform(orders);
 
   return (
     <main className="container">
-      {(getRole() === "kitchen") ? <HeaderKitchen /> : <HeaderAdmin />}
-      <h1>Cozinha em Construção</h1>
-      {orders.filter((item => item.status === 'pending')).map((item) =>
-        <article key={item.id}>
-          <p>{item.id}</p>
-          <p>contador</p>
-          <p>{item.qtd}: {item.name}</p>
-          <button data-id={item.id} data-status={item.status} onClick={handleUpdateOrder}>Finalizar</button>
-        </article>)}
+      {(getRole() === 'kitchen') ? <HeaderKitchen /> : <HeaderAdmin />}
+      <h1 className="kitchenTitle">Pedidos em Preparo </h1>
+      <section className='cards'>
+        {orders.filter(((item) => item.status === 'pending')).map((item) => <article key={item.id} className="orderCard cards">
+            <h2 className="clientName gridOneLine">{item.client_name}</h2>
+            <p className="orderDetails">Pedido: {item.id}</p>
+            <p className="orderDetails">{item.createdAt}</p>
+            <div className="orderProducts gridOneLine">
+              {item.Products.map((el) => <p key={el.id} className="orderInfo">{el.qtd}: {el.name}</p>)}
+            </div>
+            <button data-id={item.id} data-status={item.status} onClick={handleUpdateOrder} className="btnDone gridOneLine">
+              Pronto para entrega
+            </button>
+          </article>)}
+      </section>
     </main>
   );
-  };
+};

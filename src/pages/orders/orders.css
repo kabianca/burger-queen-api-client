@@ -14,10 +14,9 @@
     background-color: var(--color-yellow-kitchen);
     border-radius: 7px 7px 0 0;
     margin: 2vh auto 0;
-    padding: 0.8vh 0.8vw;
+    padding: 0.8vh 0;
     width: 80%;
-    font-family: var(--font-products);
-    font-size: 1.2rem;
+    font-size: 1.3rem;
 }
 
 .table {
@@ -36,7 +35,7 @@
 
 .tableTitleD, .tableTitleK, .tableTitleF, .kitchenColumn, .deliveryColumn, .finishedColumn {
     background-color: var(--color-gray-box);
-    padding: 1.2vh 1.5vw;
+    padding: 1.2vh 0;
 }
 
 .delivery tr, .kitchen tr, .finished tr{
@@ -57,3 +56,7 @@
 .tableTitleK { color: var(--color-yellow-service); }
 
 .tableTitleF { color: var(--color-gray); }
+
+@media screen and (min-width: 815px) {
+
+}

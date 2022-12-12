@@ -112,6 +112,7 @@
     font-weight: bold;
     color: var(--color-green);
 }
+
 .itemPrice {
     grid-row-end: span 3; /*ocupa a coluna inteira*/
     align-self: center;
@@ -155,4 +156,13 @@
     font-size: 1.1rem;
     color: var(--color-black);
     font-family: var(--font-products);
+}
+
+@media screen and (min-width: 815px) {
+    .itens{
+        gap: 0.2vw;
+    }
+    .menuItems {
+        margin: 1vh 1vw;
+    }
 }

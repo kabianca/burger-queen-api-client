@@ -9,11 +9,6 @@
     border-radius: 10px;
     cursor: pointer;
     box-shadow: 0 1px 5px  var(--color-button-shadow);
-    font-family: var(--font-products);
-}
-
-.title, .image, .name, .price {
-    background-color: var(--color-gray-box);
 }
 
 .title{
@@ -39,4 +34,11 @@
     text-align: center;
     font-weight: bold;
     color: var( --color-yellow-service);
+}
+
+@media screen and (min-width: 815px) {
+    .image {
+        width: 4.5rem;
+        height:fit-content;
+    }
 }

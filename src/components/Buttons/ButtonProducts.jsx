@@ -1,8 +1,7 @@
-import React from "react";
-import styles from "./Buttons.module.css";
+import React from 'react';
+import styles from './Buttons.module.css';
 
-export const ButtonProducts = ( {children, onClick} ) => {
-    return (
+export const ButtonProducts = ({ children, onClick }) => (
         <button className={styles.card} onClick={onClick} data-id={children.id}>
             <figure className={styles.title}>
                 <img src={children.image} alt={`Ilustração de ${children.name}`} className={styles.image}></img>
@@ -10,5 +9,4 @@ export const ButtonProducts = ( {children, onClick} ) => {
             </figure>
             <p className={styles.price}>R$ {children.price}</p>
         </button>
-    )
-};
+);
