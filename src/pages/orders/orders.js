@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
-import { TbRepeat } from 'react-icons/tb';
-import { getRole, accessOrders, updateOrders } from '../../api/api';
+import { accessOrders, updateOrders } from '../../api/api';
 import { timeDuration, cookingTime } from '../../imports/imports';
-import { HeaderService, HeaderAdmin } from '../../components/Header/Header.jsx';
-import './orders.css';
+import { Header } from '../../components/Header/Header.jsx';
 import { Button } from '../../components/Buttons/Button.jsx';
+import './orders.css';
 
 export const Orders = () => {
   const [orders, setOrders] = useState([]);
@@ -32,9 +31,9 @@ export const Orders = () => {
 
   return (
       <main className="container">
-        {(getRole() === 'service') ? <HeaderService /> : <HeaderAdmin />}
+        <Header />
         <Button onClick={loadOrders} className="reload">
-          <TbRepeat/>
+          Consultar novos pedidos
         </Button>
 
        <section className="table">
