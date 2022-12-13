@@ -1,8 +1,8 @@
 /* eslint-disable no-unused-expressions */
 import React, { useEffect, useState } from 'react';
 import { AiFillMinusCircle, AiFillPlusCircle } from 'react-icons/ai';
-import { HeaderAdmin, HeaderService } from '../../components/Header/Header.jsx';
-import { accessProducts, createOrder, getRole } from '../../api/api';
+import { Header } from '../../components/Header/Header.jsx';
+import { accessProducts, createOrder } from '../../api/api';
 import { ButtonProducts } from '../../components/Buttons/ButtonProducts.jsx';
 import { ButtonComplements } from '../../components/Buttons/ButtonComplements.jsx';
 import { Button } from '../../components/Buttons/Button.jsx';
@@ -87,7 +87,6 @@ export const Menu = () => {
     client,
     table,
     quantify,
-    total,
     products:
       cart.map((item) => {
         const cartItens = {
@@ -122,7 +121,7 @@ export const Menu = () => {
 
   return (
     <div className="container">
-      {(getRole() === 'service') ? <HeaderService /> : <HeaderAdmin />}
+      <Header />
       <section className="choiceMenu">
         <Button
           onClick={handleMenuChoice}

@@ -19,7 +19,9 @@
 
 **Autoria:** [Clarissa Simplício](https://github.com/clasimplicio) e [Karla Oliveira](https://github.com/kabianca)
 
-**Status do Projeto:** _Em andamento_ 
+**Status do Projeto:** _Concluído_ 
+
+**Implementações Futuras:** ampliar cobertura de testes
 
 </div>
 
@@ -47,7 +49,7 @@
 
 Quarto projeto realizado no [Bootcamp de Desenvolvimento Web da Laboratória](https://www.laboratoria.la/br) e teve como objetivo principal consolidar metodologias de trabalho em equipe, [desenvolvimento ágil](https://agilemanifesto.org/), [user centricity](https://uxplanet.org/ucd-vs-ux-whats-the-difference-255443efa5f), product design, research, versionamento de código, além de introduzir o uso do framework [React](https://reactjs.org/) e principios de [integração](https://medium.com/dailyjs/the-deepest-reason-why-modern-javascript-frameworks-exist-933b86ebc445) entre interface e API.
 
-Para acessar o resultado final, clique aqui.
+Para acessar o resultado final, [clique aqui](https://chapa-burger.netlify.app/).
 
 | **Função** | **login** | **senha** |
 | :---------- | :----------: | ----------:|
@@ -111,15 +113,15 @@ O [Product Owner](https://www.youtube.com/watch?v=7lhnYbmovb4) nos apresentou es
     - [x] Adicionar produtos aos pedidos.
     - [x] Excluir produtos.
     - [x] Ver resumo e o total da compra.
-    - [ ] Enviar o pedido para a cozinha (guardar em algum banco de dados).
+    - [x] Enviar o pedido para a cozinha (guardar em algum banco de dados).
     - [x] Funcionar bem em um tablet.
 
 * **Definição de pronto**
 
-   - [ ] _Code review_ de uma parceira.
+   - [x] _Code review_ de uma parceira.
    - [ ] Testes unitários e testes manuais.
-   - [ ] Testes de usabilidade e incorporação de feedback de usuário.
-   - [ ] Deploy do aplicativo e marcação de versão (tag git).
+   - [x] Testes de usabilidade e incorporação de feedback de usuário.
+   - [x] Deploy do aplicativo e marcação de versão (tag git).
 
 #### **4.1.3 História 3: Chefe de cozinha deve ver os pedidos**
 
@@ -127,16 +129,16 @@ O [Product Owner](https://www.youtube.com/watch?v=7lhnYbmovb4) nos apresentou es
 
 * **Critérios de aceitação**
 
-    - [ ] Ver os pedidos ordenados à medida em que são feitos.
-    - [ ] Marcar os pedidos que foram preparados e estão prontos para serem servidos.
-    - [ ] Ver o tempo que levou para preparar o pedido desde que chegou, até ser marcado como concluído.
+    - [x] Ver os pedidos ordenados à medida em que são feitos.
+    - [x] Marcar os pedidos que foram preparados e estão prontos para serem servidos.
+    - [x] Ver o tempo que levou para preparar o pedido desde que chegou, até ser marcado como concluído.
 
 * **Definição de pronto**
    
-   - [ ] _Code review_ de uma parceira.
+   - [x] _Code review_ de uma parceira.
    - [ ] Testes unitários e testes manuais.
-   - [ ] Testes de usabilidade e incorporação de feedback de usuário.
-   - [ ] Deploy do aplicativo e marcação de versão (tag git).
+   - [x] Testes de usabilidade e incorporação de feedback de usuário.
+   - [x] Deploy do aplicativo e marcação de versão (tag git).
 
 #### **4.1.4 História 4: Garçom/Garçonete deve ver os pedidos prontos para servir**
 
@@ -144,16 +146,16 @@ O [Product Owner](https://www.youtube.com/watch?v=7lhnYbmovb4) nos apresentou es
 
 * **Critérios de aceitação**
 
-    - [ ] Ver a lista de pedidos prontos para servir.
-    - [ ] Marcar os pedidos que foram entregues.
+    - [x] Ver a lista de pedidos prontos para servir.
+    - [x] Marcar os pedidos que foram entregues.
 
 * **Definição de pronto**
 
-   - [ ] _Code review_ de uma parceira.
+   - [x] _Code review_ de uma parceira.
    - [ ] Testes unitários e testes manuais.
-   - [ ] Testes de usabilidade e incorporação de feedback de usuário.
-   - [ ] Deploy do aplicativo e marcação de versão (tag git).
-   - [ ] Os dados devem ser mantidos intactos, mesmo depois que um pedido for finalizado. Tudo isso para poder ter estatísticas no futuro.
+   - [x] Testes de usabilidade e incorporação de feedback de usuário.
+   - [x] Deploy do aplicativo e marcação de versão (tag git).
+   - [x] Os dados devem ser mantidos intactos, mesmo depois que um pedido for finalizado. Tudo isso para poder ter estatísticas no futuro.
 
 ## **5. Estrutura de apresentação**
 
@@ -177,13 +179,13 @@ A aplicação deve seguir 80% ou mais das pontuações de Performance, Progressi
 | | | routing |
 ## **8. Fonte das imagens**
 
-Logo hamburger adaptado de: <a href="https://www.freepik.com/free-vector/burger-fast-food-concept-hand-drawn-sketch-vector-illustration_26935569.htm#query=hamburger&position=7&from_view=search&track=sph">Image by nuraghies</a> on Freepik
+- **Logo hamburger** adaptado de: <a href="https://www.freepik.com/free-vector/burger-fast-food-concept-hand-drawn-sketch-vector-illustration_26935569.htm#query=hamburger&position=7&from_view=search&track=sph">Image by nuraghies</a> on Freepik
 
-Icones do cardápio: <a href="https://www.flaticon.com/authors/freepik" title="Freepik icons">Icons created by Freepik - Flaticon</a> (chicken, vegan, hamburger, hamburger double, coffee, milk coffee, onion rings, french-fries, drink, water, egg, orange juice)
+- **Icones do cardápio**: <a href="https://www.flaticon.com/authors/freepik" title="Freepik icons">Icons created by Freepik - Flaticon</a> (chicken, vegan, hamburger, hamburger double, coffee, milk coffee, onion rings, french-fries, drink, water, egg, orange juice)
 
-Cheese slice: <a href="https://www.flaticon.com/free-icons/cheese-slice" title="cheese slice icons">Cheese slice icons created by Erifqi Zetiawan - Flaticon</a>
+- **Cheese slice**: <a href="https://www.flaticon.com/free-icons/cheese-slice" title="cheese slice icons">Cheese slice icons created by Erifqi Zetiawan - Flaticon</a>
 
-Sandwich: <a href="https://www.flaticon.com/free-icons/sandwich" title="sandwich icons">Sandwich icons created by Flat Icons - Flaticon</a>
+- **Sandwich**: <a href="https://www.flaticon.com/free-icons/sandwich" title="sandwich icons">Sandwich icons created by Flat Icons - Flaticon</a>
 
 
 

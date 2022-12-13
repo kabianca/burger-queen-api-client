@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { getRole, accessOrders, updateOrders } from '../../api/api';
-import { HeaderKitchen, HeaderAdmin } from '../../components/Header/Header.jsx';
+import { accessOrders, updateOrders } from '../../api/api';
+import { Header } from '../../components/Header/Header.jsx';
 import { dateTransform } from '../../imports/imports';
 import './kitchen.css';
 
@@ -29,7 +29,7 @@ export const Kitchen = () => {
 
   return (
     <main className="container">
-      {(getRole() === 'kitchen') ? <HeaderKitchen /> : <HeaderAdmin />}
+      <Header />
       <h1 className="kitchenTitle">Pedidos em Preparo </h1>
       <section className='cards'>
         {orders.filter(((item) => item.status === 'pending')).map((item) => <article key={item.id} className="orderCard cards">

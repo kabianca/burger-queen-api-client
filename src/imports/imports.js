@@ -1,4 +1,7 @@
-import { differenceInMinutes, minutesToHours, millisecondsToHours } from 'date-fns';
+import {
+  differenceInMinutes, minutesToHours, millisecondsToHours, millisecondsToMinutes,
+  millisecondsToSeconds, hoursToSeconds, minutesToSeconds,
+} from 'date-fns';
 
 export function dateTransform(orders) {
   orders.forEach((order) => {
@@ -22,7 +25,12 @@ export const timeDuration = (processed, created) => {
 
 export function cookingTime(created, time) {
   const date = new Date(created);
-  const startPrepare = time - date.getUTCMilliseconds();
+  const startPrepare = time - date;
   const transform = millisecondsToHours(startPrepare);
-  return transform;
+
+  const minutes = millisecondsToMinutes(startPrepare) % 60;
+  const seconds = millisecondsToSeconds(startPrepare)
+                    - hoursToSeconds(transform)
+                    - minutesToSeconds(minutes);
+  return `${transform}:${minutes}:${seconds}`;
 }
