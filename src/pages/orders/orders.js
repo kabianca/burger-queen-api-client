@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { differenceInMinutes } from 'date-fns';
+import { TbRepeat } from 'react-icons/tb';
 import { getRole, accessOrders, updateOrders } from '../../api/api';
 import { HeaderService, HeaderAdmin } from '../../components/Header/Header.jsx';
 import './orders.css';
@@ -35,7 +36,9 @@ export const Orders = () => {
   return (
       <main className="container">
         {(getRole() === 'service') ? <HeaderService /> : <HeaderAdmin />}
-        <Button onClick={loadOrders} className="reload" text="Consultar Novos Pedidos"/>
+        <Button onClick={loadOrders} className="reload">
+          <TbRepeat/>
+        </Button>
 
        <section className="table">
          <h2 className="title">Na Cozinha</h2>
