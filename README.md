@@ -16,9 +16,10 @@
     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma" style="height: 30px;"/>
 </div>
 
-**Status do Projeto:** _Em andamento_ 
 
 **Autoria:** [Clarissa Simplício](https://github.com/clasimplicio) e [Karla Oliveira](https://github.com/kabianca)
+
+**Status do Projeto:** _Em andamento_ 
 
 </div>
 
@@ -46,6 +47,13 @@
 
 Quarto projeto realizado no [Bootcamp de Desenvolvimento Web da Laboratória](https://www.laboratoria.la/br) e teve como objetivo principal consolidar metodologias de trabalho em equipe, [desenvolvimento ágil](https://agilemanifesto.org/), [user centricity](https://uxplanet.org/ucd-vs-ux-whats-the-difference-255443efa5f), product design, research, versionamento de código, além de introduzir o uso do framework [React](https://reactjs.org/) e principios de [integração](https://medium.com/dailyjs/the-deepest-reason-why-modern-javascript-frameworks-exist-933b86ebc445) entre interface e API.
 
+Para acessar o resultado final, clique aqui.
+
+| **Função** | **login** | **senha** |
+| :---------- | :----------: | ----------:|
+| Atendimento | servico@teste.com | 123456 |
+| Cozinha | cozinha@teste.com | 123456 |
+
 ### **1.1 Problema**
 
 Um pequeno restaurante de hambúrgueres, que está crescendo, necessita uma interface em que se possa realizar pedidos utilizando um tablet, e enviá-los para a cozinha para que sejam preparados de forma ordenada e eficiente. Este projeto tem duas áreas: interface (cliente) e API (servidor). Nosso cliente nos pediu para desenvolver uma interface que se integre com a API.
@@ -60,11 +68,10 @@ A interface deve mostrar os dois menus (café da manhã e restante do dia), cada
 
 ## **2. Idealização do Projeto**
 
-O planejamento desse projeto foi realizado de modo integral com auxílio [GitHub Projects](https://docs.github.com/pt/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects), onde foi possível agrupar problemas e acompanhar as solicitações e aprovações de Pull Requests associados à resolução desses problemas e tudo isso disposto de maneira bastante intuitiva em um [Kanban Dashboard](https://kanbanize.com/kanban-resources/getting-started/what-is-kanban-board). Além disso, é possível ainda visualizar o andamento do trabalho com gráficos configuráveis e trabalhar com milestones (marcos).
-
-
+O planejamento desse projeto foi realizado de modo integral com auxílio [GitHub Projects](https://docs.github.com/pt/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects), onde foi possível agrupar problemas e acompanhar as solicitações e aprovações de Pull Requests associados à resolução desses problemas e tudo isso disposto de maneira bastante intuitiva em um [Kanban Dashboard](https://kanbanize.com/kanban-resources/getting-started/what-is-kanban-board). Além disso, tornou possível visualizar o andamento do trabalho com gráficos configuráveis e trabalhar com milestones (marcos).
 
 ## **3. Desenho de interface do usuário**
+A interface foi projetada e implementada para ser usada em tablets, por isso optou-se pelo uso de botões e elementos com áreas clicáveis amplas.
 
 ### **3.1 Protótipos de baixa fidelidade**
 

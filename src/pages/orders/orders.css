@@ -44,11 +44,13 @@
 
 .input {
     background-color: var(--color-green);
-    padding: 2vh 2.5vw;
+    padding: 0 1vw;
     border: none;
     border-radius: 5px;
-    text-decoration: none;
     cursor: pointer;
+    text-decoration: none;
+    font-size: 1.5rem;
+    color: var(--color-white)
 }
 
 .tableTitleD { color: var(--color-green); }
