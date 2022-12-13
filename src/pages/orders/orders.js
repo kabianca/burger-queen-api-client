@@ -1,19 +1,22 @@
 import React, { useState } from 'react';
-import { differenceInMinutes } from 'date-fns';
 import { TbRepeat } from 'react-icons/tb';
 import { getRole, accessOrders, updateOrders } from '../../api/api';
+import { timeDuration, cookingTime } from '../../imports/imports';
 import { HeaderService, HeaderAdmin } from '../../components/Header/Header.jsx';
 import './orders.css';
 import { Button } from '../../components/Buttons/Button.jsx';
 
 export const Orders = () => {
   const [orders, setOrders] = useState([]);
+  const [time, setTime] = useState(0);
+
   const loadOrders = () => {
     accessOrders()
       .then((response) => response.json())
       .then((data) => {
         setOrders(data);
       });
+    setTime(Date.now());
   };
 
   const handleUpdateOrder = (e) => {
@@ -22,13 +25,7 @@ export const Orders = () => {
     updateOrders(idOrder, 'done');
   };
 
-  const timeDuration = (processed, created) => {
-    const processedAt = new Date(processed);
-    const createdAt = new Date(created);
-    const time = differenceInMinutes(processedAt, createdAt);
-    return time;
-  };
-
+  // Comentado para não sobrecarregar a API
   // useEffect(() => {
   //   loadOrders();
   // }, []);
@@ -49,7 +46,7 @@ export const Orders = () => {
                <th className="tableTitleK">Cliente</th>
                <th className="tableTitleK">Mesa</th>
                <th className="tableTitleK">Qnt de itens</th>
-               <th className="tableTitleK">Tempo</th>
+               <th className="tableTitleK">Hora</th>
              </tr>
              {orders.filter(((item) => item.status === 'pending')).map((item) => (
                 <tr key={item.id} className="row-table">
@@ -57,7 +54,7 @@ export const Orders = () => {
                   <td className="kitchenColumn">{item.client_name}</td>
                   <td className="kitchenColumn">{item.table}</td>
                   <td className="kitchenColumn">{item.Products.length}</td>
-                  <td className="kitchenColumn">{item.processedAt}</td>
+                  <td className="kitchenColumn">{cookingTime(item.createdAt, time)}</td>
                 </tr>
              ))}
             </tbody>
@@ -81,7 +78,12 @@ export const Orders = () => {
                     <td className="kitchenColumn">{item.client_name}</td>
                     <td className="kitchenColumn">{item.table}</td>
                     <td className="kitchenColumn">{item.value}</td>
-                    <td className="kitchenColumn"><input data-id={item.id} type="submit" value="ok" onClick={handleUpdateOrder}/></td>
+                    <td className="kitchenColumn"><input
+                                                    data-id={item.id}
+                                                    type="submit"
+                                                    value="🗸"
+                                                    onClick={handleUpdateOrder}
+                                                    className="input"/></td>
                   </tr>
              ))}
             </tbody>
@@ -103,7 +105,7 @@ export const Orders = () => {
                     <td className="finishedColumn">{item.id}</td>
                     <td className="finishedColumn">{item.client_name}</td>
                     <td className="finishedColumn">{item.table}</td>
-                    <td className="finishedColumn">{`${timeDuration(item.processedAt, item.createdAt)} min`}</td>
+                    <td className="finishedColumn">{timeDuration(item.processedAt, item.createdAt)}</td>
                   </tr>
               ))}
             </tbody>

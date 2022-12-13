@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { getRole, accessOrders, updateOrders } from '../../api/api';
 import { HeaderKitchen, HeaderAdmin } from '../../components/Header/Header.jsx';
+import { dateTransform } from '../../imports/imports';
 import './kitchen.css';
 
 export const Kitchen = () => {
@@ -23,14 +24,6 @@ export const Kitchen = () => {
   useEffect(() => {
     loadOrders();
   }, []);
-
-  function dateTransform(orders) {
-    orders.forEach((order) => {
-      const date = new Date(order.createdAt);
-      const newDate = date.toLocaleString();
-      order.createdAt = newDate;
-    });
-  }
 
   dateTransform(orders);
 

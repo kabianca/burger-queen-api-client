@@ -1,3 +1,10 @@
+.container {
+    background-color: var(--color-background);
+    height:100vh;
+    text-align: center;
+    overflow-y: auto;
+}
+
 .kitchenTitle {
     color: var(--color-white);
     margin-top: 2vh;
@@ -7,6 +14,7 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     align-items: center;
+    height: auto;
 }
 
 .orderCard {
@@ -25,6 +33,7 @@
 
 .orderProducts {
     padding: 2vh 2vw;
+    overflow-y: auto;
 }
 
 .orderInfo {
