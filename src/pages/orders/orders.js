@@ -3,6 +3,7 @@ import { accessOrders, updateOrders } from '../../api/api';
 import { timeDuration, cookingTime } from '../../imports/imports';
 import { Header } from '../../components/Header/Header.jsx';
 import { Button } from '../../components/Buttons/Button.jsx';
+import { Grid } from '../../components/Grid/Grid.jsx';
 import './orders.css';
 
 export const Orders = () => {
@@ -24,6 +25,10 @@ export const Orders = () => {
     updateOrders(idOrder, 'done');
   };
 
+  const headerKitchen = ['ID Pedido', 'Cliente', 'Mesa', 'ID Atendente', 'Tempo'];
+  const headerDelivery = ['ID Pedido', 'Cliente', 'Mesa', 'Qnt de Itens', 'Entregue?'];
+  const headerFinished = ['ID Pedido', 'Cliente', 'Qnt de Itens', 'ID Atendente', 'Tempo'];
+
   // Comentado para não sobrecarregar a API
   // useEffect(() => {
   //   loadOrders();
@@ -36,79 +41,58 @@ export const Orders = () => {
           Consultar novos pedidos
         </Button>
 
-       <section className="table">
-         <h2 className="title">Na Cozinha</h2>
-         <table className="kitchen">
-           <tbody>
-             <tr className="row-table">
-               <th className="tableTitleK">Pedido</th>
-               <th className="tableTitleK">Cliente</th>
-               <th className="tableTitleK">Mesa</th>
-               <th className="tableTitleK">Qnt de itens</th>
-               <th className="tableTitleK">Hora</th>
-             </tr>
-             {orders.filter(((item) => item.status === 'pending')).map((item) => (
-                <tr key={item.id} className="row-table">
-                  <td className="kitchenColumn">{item.id}</td>
-                  <td className="kitchenColumn">{item.client_name}</td>
-                  <td className="kitchenColumn">{item.table}</td>
-                  <td className="kitchenColumn">{item.Products.length}</td>
-                  <td className="kitchenColumn">{cookingTime(item.createdAt, time)}</td>
-                </tr>
-             ))}
-            </tbody>
-          </table>
-        </section>
+       <section>
+       <h2 className="title">Na Cozinha</h2>
+          <nav>
+            <ul className='oneLine headerColumns'>
+              {headerKitchen.map((title, index) => <Grid key={index} item={title} />)}
+            </ul>
+              {orders.filter((item) => item.status === 'pending')
+                .map((i) => <ul key={i.id} className='oneLine'>
+                              <Grid item={i.id} />
+                              <Grid item={i.client_name} />
+                              <Grid item={i.table} />
+                              <Grid item={i.user_id} />
+                              <Grid item={cookingTime(i.createdAt, time)} />
+                            </ul>)}
+          </nav>
+       </section>
 
-        <section className="table">
+        <section>
          <h2 className="title">Pronto para Entrega</h2>
-         <table className="kitchen">
-           <tbody>
-             <tr className="row-table">
-               <th className="tableTitleK">Pedido</th>
-               <th className="tableTitleK">Cliente</th>
-               <th className="tableTitleK">Mesa</th>
-               <th className="tableTitleK">Valor</th>
-               <th className="tableTitleK"></th>
-             </tr>
-             {orders.filter(((item) => item.status === 'ready')).map((item) => (
-                  <tr key={item.id} className="row-table">
-                    <td className="kitchenColumn">{item.id}</td>
-                    <td className="kitchenColumn">{item.client_name}</td>
-                    <td className="kitchenColumn">{item.table}</td>
-                    <td className="kitchenColumn">{item.value}</td>
-                    <td className="kitchenColumn"><input
-                                                    data-id={item.id}
-                                                    type="submit"
-                                                    value="🗸"
-                                                    onClick={handleUpdateOrder}
-                                                    className="input"/></td>
-                  </tr>
-             ))}
-            </tbody>
-          </table>
+         <nav>
+          <ul className='oneLine headerColumns'>
+            {headerDelivery.map((title, index) => <Grid key={index} item={title} />)}
+          </ul>
+            {orders.filter((item) => item.status === 'ready')
+              .map((i) => <ul key={i.id} className='oneLine'>
+                                <Grid item={i.id} />
+                                <Grid item={i.client_name} />
+                                <Grid item={i.table} />
+                                <Grid item={i.Products.length} />
+                                <Button
+                                  data-id={i.id}
+                                  onClick={handleUpdateOrder}
+                                  className="input">🗸</Button>
+                              </ul>)}
+         </nav>
         </section>
 
-        <section className="table">
+        <section>
           <h2 className="title">Pedidos Finalizados</h2>
-          <table className="finished">
-            <tbody>
-              <tr className="row-table">
-                <th className="tableTitleF">Pedido</th>
-                <th className="tableTitleF">Cliente</th>
-                <th className="tableTitleF">Mesa</th>
-                <th className="tableTitleF">Tempo</th>
-              </tr>
-              {orders.filter(((item) => item.status === 'done')).map((item) => (
-                  <tr key={item.id} className="row-table">
-                    <td className="finishedColumn">{item.id}</td>
-                    <td className="finishedColumn">{item.client_name}</td>
-                    <td className="finishedColumn">{item.table}</td>
-                    <td className="finishedColumn">{timeDuration(item.processedAt, item.createdAt)}</td>
-                  </tr>
-              ))}
-            </tbody>
-          </table>
+          <nav>
+            <ul className='oneLine headerColumns'>
+              {headerFinished.map((title, index) => <Grid key={index} item={title} />)}
+            </ul>
+            {orders.filter((item) => item.status === 'done')
+              .map((i) => <ul key={i.id} className='oneLine'>
+                                <Grid item={i.id} />
+                                <Grid item={i.client_name} />
+                                <Grid item={i.Products.length} />
+                                <Grid item={i.user_id} />
+                                <Grid item={timeDuration(i.processedAt, i.createdAt)} />
+                              </ul>)}
+         </nav>
         </section>
       </main>
   );

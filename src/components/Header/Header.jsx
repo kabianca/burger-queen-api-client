@@ -6,6 +6,7 @@ import styles from './Header.module.css';
 
 export const Header = () => {
   const navigate = useNavigate();
+
   const handleLogout = () => {
     removeToken();
     if (!getToken()) {

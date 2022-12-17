@@ -1,6 +1,11 @@
 import {
-  differenceInMinutes, minutesToHours, millisecondsToHours, millisecondsToMinutes,
-  millisecondsToSeconds, hoursToSeconds, minutesToSeconds,
+  differenceInMinutes,
+  hoursToSeconds,
+  minutesToSeconds,
+  minutesToHours,
+  millisecondsToHours,
+  millisecondsToMinutes,
+  millisecondsToSeconds,
 } from 'date-fns';
 
 export function dateTransform(orders) {
@@ -11,26 +16,25 @@ export function dateTransform(orders) {
   });
 }
 
-export const timeDuration = (processed, created) => {
+export function timeDuration(processed, created) {
   const processedAt = new Date(processed);
   const createdAt = new Date(created);
   const time = differenceInMinutes(processedAt, createdAt);
-  const module = time % 60;
+  const minutes = time % 60;
   if (time > 60) {
     const final = minutesToHours(time);
-    return `${final}:${module} horas`;
+    return `${final}:${minutes} horas`;
   }
-  return `${time}:${module} min`;
-};
+  return `${time}:${minutes} min`;
+}
 
 export function cookingTime(created, time) {
   const date = new Date(created);
   const startPrepare = time - date;
-  const transform = millisecondsToHours(startPrepare);
-
+  const hours = millisecondsToHours(startPrepare);
   const minutes = millisecondsToMinutes(startPrepare) % 60;
   const seconds = millisecondsToSeconds(startPrepare)
-                    - hoursToSeconds(transform)
-                    - minutesToSeconds(minutes);
-  return `${transform}:${minutes}:${seconds}`;
+                  - hoursToSeconds(hours)
+                  - minutesToSeconds(minutes);
+  return `${hours}:${minutes}:${seconds}`;
 }
