@@ -27,7 +27,7 @@ export const Orders = () => {
 
   const headerKitchen = ['ID Pedido', 'Cliente', 'Mesa', 'ID Atendente', 'Tempo'];
   const headerDelivery = ['ID Pedido', 'Cliente', 'Mesa', 'Qnt de Itens', 'Entregue?'];
-  const headerFinished = ['ID Pedido', 'Cliente', 'Qnt de Itens', 'ID Atendente', 'Tempo'];
+  const headerFinished = ['ID Pedido', 'Cliente', 'Qnt de Itens', 'ID Atendente', 'Duração'];
 
   // Comentado para não sobrecarregar a API
   // useEffect(() => {
